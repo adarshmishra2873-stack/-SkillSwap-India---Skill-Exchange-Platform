@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSwap India - Adarsh Kumar Mishra</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Basic styling */
+  :root { --saffron: #FF6B35; --navy: #0A1628; --cream: #FFF8F0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+  body { background: var(--cream); }
+  nav { display: flex; justify-content: space-between; padding: 1rem 2rem; background: var(--navy); color: white; }
+  .logo { font-family: 'Baloo 2'; font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+  .nav-cta { background: var(--saffron); color: white; padding: 8px 20px; border-radius: 50px; cursor: pointer; border: none; font-weight: 600; }
+  
+  /* Modals and Chat Widgets */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; }
+  .modal-box { background: white; padding: 2rem; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; position: relative; }
+  .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; }
+  .auth-btn { width: 100%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #ccc; background: white; cursor: pointer; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px; }
+  .auth-btn.google { border-color: #4285F4; color: #4285F4; }
+  
+  .chat-widget { display: none; position: fixed; bottom: 20px; right: 20px; width: 320px; height: 450px; background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); z-index: 999; flex-direction: column; overflow: hidden; }
+  .chat-header { background: var(--navy); color: white; padding: 15px; font-weight: 600; display: flex; justify-content: space-between; }
+  .chat-body { flex: 1; padding: 10px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
+  .chat-input-area { display: flex; padding: 10px; border-top: 1px solid #eee; background: white; }
+  .chat-input { flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+  .send-btn { background: var(--saffron); color: white; border: none; padding: 8px 15px; border-radius: 20px; margin-left: 5px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">SkillSwap India</a>
+  <button id="loginBtn" class="nav-cta" onclick="openLoginModal()">Login / Join</button>
+</nav>
+
+<div style="padding: 5rem 2rem; text-align: center;">
+    <h1 style="font-family: 'Baloo 2'; font-size: 3rem;">Apna Skill Exchange Karo!</h1>
+    <img src="adarsh.png" alt="Adarsh Kumar Mishra" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-top: 20px; border: 3px solid #FF6B35;">
+    <h3 style="margin-top: 10px;">Adarsh Kumar Mishra</h3>
+    <p style="color: #666; font-size: 0.9rem;">Founder & CEO</p>
+    <button onclick="openChat()" style="margin-top:20px; padding: 12px 25px; background: #1B6B35; color:white; border:none; border-radius:25px; cursor:pointer; font-weight: 600; font-size: 1.1rem;">💬 Open Global Chat</button>
+</div>
+
+<div id="loginModal" class="modal-overlay">
+  <div class="modal-box">
+    <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+    <h2 style="font-family: 'Baloo 2'; color: var(--navy);">Join Community</h2>
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Secure login se judein.</p>
+    <button id="googleAuthBtn" class="auth-btn google">
+      <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="G"/> Google se Login karein
+    </button>
+    <p style="margin-top: 20px; font-size: 0.8rem;"><a href="admin.html" style="color: var(--navy); text-decoration: none; font-weight: bold;">⚙️ Admin Panel Access</a></p>
+  </div>
+</div>
+
+<div id="chatWidget" class="chat-widget">
+  <div class="chat-header">
+    <span>Live Community Chat</span>
+    <span style="cursor:pointer;" onclick="closeChat()">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div style="font-size:0.8rem; color:#888; text-align:center;">Numbers are hidden for privacy 🔒</div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="msgInput" class="chat-input" placeholder="Type a message...">
+    <button id="sendMsgBtn" class="send-btn">Send</button>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  // Aapki Exact Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCnlFllcoKlSeezpyWoVXb2bvAiU6MW4yI",
+    authDomain: "skillswap-india-skill-exchange.firebaseapp.com",
+    projectId: "skillswap-india-skill-exchange",
+    storageBucket: "skillswap-india-skill-exchange.firebasestorage.app",
+    messagingSenderId: "148009546501",
+    appId: "1:148009546501:web:ea5dbfdf52d3cd47fdbd6c",
+    measurementId: "G-ZF0T29SCYW"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  let currentUser = null;
+
+  // Google Login Logic
+  document.getElementById('googleAuthBtn').addEventListener('click', () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then((result) => {
+      document.getElementById('loginModal').style.display = 'none';
+      alert("Swagat hai " + result.user.displayName + "!");
+    }).catch((error) => {
+      console.error(error);
+      alert("Login Error: " + error.message);
+    });
+  });
+
+  // Auth State Listener
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      currentUser = user;
+      document.getElementById('loginBtn').innerText = user.displayName;
+    } else {
+      currentUser = null;
+      document.getElementById('loginBtn').innerText = "Login / Join";
+    }
+  });
+
+  // Chat Send Logic
+  document.getElementById('sendMsgBtn').addEventListener('click', async () => {
+    if(!currentUser) {
+      alert("Chat karne ke liye pehle login karein!");
+      openLoginModal();
+      return;
+    }
+    const msg = document.getElementById('msgInput').value;
+    if(msg.trim() !== "") {
+      try {
+        await addDoc(collection(db, "chats"), {
+          text: msg,
+          senderName: currentUser.displayName,
+          uid: currentUser.uid,
+          timestamp: serverTimestamp()
+        });
+        document.getElementById('msgInput').value = "";
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+  });
+
+  // Chat Receive Logic (Realtime)
+  const q = query(collection(db, "chats"), orderBy("timestamp", "asc"));
+  onSnapshot(q, (snapshot) => {
+    const chatBody = document.getElementById('chatBody');
+    chatBody.innerHTML = '<div style="font-size:0.8rem; color:#888; text-align:center; margin-bottom:10px;">Numbers are hidden for privacy 🔒</div>';
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      const isMe = currentUser && data.uid === currentUser.uid;
+      const align = isMe ? "right" : "left";
+      const bgColor = isMe ? "var(--saffron)" : "#e0e0e0";
+      const textColor = isMe ? "white" : "black";
+      
+      chatBody.innerHTML += `
+        <div style="text-align: ${align};">
+          <div style="font-size: 0.7rem; color: #666; margin-bottom: 2px;">${data.senderName}</div>
+          <div style="background: ${bgColor}; color: ${textColor}; padding: 8px 12px; border-radius: 15px; display: inline-block; font-size: 0.9rem; max-width: 80%; text-align: left;">
+            ${data.text}
+          </div>
+        </div>`;
+    });
+    chatBody.scrollTop = chatBody.scrollHeight;
+  });
+</script>
+
+<script>
+  function openLoginModal() { document.getElementById('loginModal').style.display = 'flex'; }
+  function closeLoginModal() { document.getElementById('loginModal').style.display = 'none'; }
+  function openChat() { document.getElementById('chatWidget').style.display = 'flex'; }
+  function closeChat() { document.getElementById('chatWidget').style.display = 'none'; }
+</script>
+
+</body>
+</html>

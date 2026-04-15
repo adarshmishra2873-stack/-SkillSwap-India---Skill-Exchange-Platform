@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SkillSwap India - Adarsh Mishra</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
+  /* ==========================================================================
+     1. AAPKA 100% ORIGINAL CSS (KUCH BHI DELETE NAHI KIYA)
+     ========================================================================== */
   :root {
     --saffron: #FF6B35;
     --deep-saffron: #E85320;
@@ -341,6 +345,7 @@
     font-weight: 600 !important;
     border: none;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
   }
 
   /* ===== HOW IT WORKS ===== */
@@ -902,50 +907,66 @@
     .founder-card { width: 280px; margin: 0 auto; }
   }
 
-  /* ========================================================================================= */
-  /* ===== 🔥 NAYE FEATURES KA CSS (MARKETPLACE, MODALS, CHAT) BINA PURANE KO CHHEDE ===== */
-  /* ========================================================================================= */
+  /* ==========================================================================
+     2. 🔥 INBUILT ADVANCED FEATURES (MARKETPLACE, WHATSAPP-CHAT, MODALS)
+     ========================================================================== */
 
   .hidden-page { display: none !important; }
-  
+
   /* Marketplace Styles */
   #marketplacePage { padding: 120px 2rem 6rem; max-width: 1200px; margin: 0 auto; min-height: 100vh; }
-  .users-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+  .users-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
   .user-card { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s; }
   .user-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,107,53,0.1); }
   .user-card h3 { font-family: 'Baloo 2', cursive; color: var(--navy); font-size: 1.4rem; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
   .skill-badge { display: inline-block; padding: 5px 12px; border-radius: 5px; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
   .badge-teach { background: rgba(27, 107, 53, 0.1); color: var(--india-green); }
   .badge-learn { background: rgba(255, 107, 53, 0.1); color: var(--deep-saffron); }
-  .msg-btn { width: 100%; margin-top: 15px; background: var(--navy); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+  .msg-btn { width: 100%; margin-top: 15px; background: var(--navy); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; font-family:'Poppins';}
   .msg-btn:hover { background: var(--saffron); }
 
-  /* Modal Styles */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-  .modal-box { background: var(--white); padding: 2.5rem 1.5rem; border-radius: 20px; width: 90%; max-width: 450px; text-align: center; position: relative; }
+  /* WHATSAPP-STYLE GLOBAL CHAT (Large for Desktop, Normal for Mobile) */
+  .chat-widget {
+    display: none; position: fixed; bottom: 20px; right: 20px; 
+    width: 350px; height: 500px; background: white; border-radius: 15px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3); z-index: 1500;
+    flex-direction: column; overflow: hidden; border: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* The Magic WhatsApp Web Effect for Desktop */
+  @media (min-width: 1024px) {
+    .chat-widget.whatsapp-style {
+      width: 900px; height: 80vh; 
+      bottom: 10vh; right: calc(50% - 450px);
+    }
+  }
+
+  .chat-header { background: #075e54; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Baloo 2', cursive; font-size: 1.2rem; }
+  .chat-body { flex: 1; padding: 20px; overflow-y: auto; background: #e5ddd5; display: flex; flex-direction: column; gap: 10px; }
+  
+  /* Message Bubbles - WhatsApp Style */
+  .msg-wrapper { max-width: 75%; padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; position: relative; display: flex; flex-direction: column;}
+  .msg-wrapper.me { align-self: flex-end; background: #dcf8c6; border-top-right-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+  .msg-wrapper.other { align-self: flex-start; background: white; border-top-left-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+  .msg-sender { font-size: 0.7rem; font-weight: 700; color: #075e54; margin-bottom: 2px; }
+
+  .chat-input-area { background: #f0f0f0; padding: 10px 15px; display: flex; align-items: center; gap: 10px; }
+  .chat-input { flex: 1; padding: 12px 18px; border: none; border-radius: 25px; outline: none; font-family: 'Poppins'; }
+  .chat-send-btn { background: #128c7e; color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+  /* Modals */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+  .modal-box { background: white; padding: 2.5rem 1.5rem; border-radius: 20px; width: 90%; max-width: 450px; text-align: center; position: relative; }
   .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; color: #aaa; cursor: pointer; }
-  .auth-btn { width: 100%; padding: 12px; margin: 15px 0; border-radius: 12px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px; color: var(--navy); font-family: 'Poppins', sans-serif;}
+  .auth-btn { width: 100%; padding: 14px; margin: 15px 0; border-radius: 12px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px; font-family:'Poppins';}
   
   .input-group { text-align: left; margin-bottom: 15px; }
   .input-group label { font-size: 0.85rem; color: var(--text-mid); font-weight: 600; margin-bottom: 5px; display: block; }
-  .input-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Poppins', sans-serif; }
-  .input-group input:focus { border-color: var(--saffron); }
+  .input-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Poppins'; }
 
-  /* Chat Widget Styles */
-  .chat-widget { display: none; position: fixed; bottom: 20px; right: 20px; width: 340px; height: 480px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 1500; flex-direction: column; overflow: hidden; border: 1px solid #ddd; }
-  .chat-header { background: var(--navy); color: var(--white); padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; font-family: 'Baloo 2', cursive; font-size: 1.2rem;}
-  .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #FFF8F3; display: flex; flex-direction: column; gap: 10px; }
-  .chat-input-area { display: flex; padding: 10px; border-top: 1px solid #f0f0f0; background: var(--white); gap: 10px; }
-  .chat-input { flex: 1; padding: 10px; border: 1px solid #EEE; border-radius: 50px; outline: none; font-family: 'Poppins', sans-serif;}
-  .chat-send-btn { background: var(--saffron); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
-
-  .msg-wrapper { max-width: 85%; display: flex; flex-direction: column; }
-  .msg-wrapper.me { align-self: flex-end; }
-  .msg-wrapper.other { align-self: flex-start; }
-  .msg-sender { font-size: 0.7rem; color: #888; margin-bottom: 2px; }
-  .msg-text { padding: 8px 12px; border-radius: 12px; font-size: 0.9rem; }
-  .msg-wrapper.me .msg-text { background: var(--saffron); color: var(--white); border-bottom-right-radius: 3px; }
-  .msg-wrapper.other .msg-text { background: #EEE; color: var(--navy); border-bottom-left-radius: 3px; }
+  /* Live Class Pulse Animation */
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
 </style>
 </head>
@@ -959,9 +980,9 @@
     <li><a href="javascript:void(0)" onclick="showPage('landing')">Home</a></li>
     <li><a href="#how" class="scroll-link">Kaise Kaam Karta Hai</a></li>
     <li><a href="#features" class="scroll-link">Features</a></li>
-    <li><a href="javascript:void(0)" onclick="toggleCommunityChat()">🌍 Global Chat</a></li>
+    <li><a href="javascript:void(0)" onclick="toggleChat('communityChatWidget', true)">🌍 Global Chat</a></li>
     <li id="browseMenuBtn" style="display:none;"><a href="javascript:void(0)" onclick="showPage('marketplace')" style="color:var(--saffron); font-weight:bold;">🔍 Browse Skills</a></li>
-    <li><button id="loginBtnNav" class="nav-cta" onclick="openLoginModal()" style="border:none; cursor:pointer;">Login / Join</button></li>
+    <li><button id="loginBtnNav" class="nav-cta" onclick="openLoginModal()" style="border:none; cursor:pointer; font-family:'Poppins';">Login / Join</button></li>
   </ul>
 </nav>
 
@@ -1272,20 +1293,21 @@
       <a href="#">Contact</a>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 SkillSwap India — Founded by Adarsh Mishra, Shahjahanpur, Uttar Pradesh 🇮🇳</p>
+      <p>© 2026 SkillSwap India — Founded by Adarsh Mishra, Shahjahanpur, Uttar Pradesh 🇮🇳</p>
       <p style="margin-top: 0.3rem;">Made with ❤️ for Bharat • Jai Hind!</p>
     </div>
   </footer>
-
-</div> <div id="marketplacePage" class="hidden-page">
+</div> 
+<div id="marketplacePage" class="hidden-page">
   <div style="text-align: center; margin-bottom: 2rem;">
     <h2 class="section-title">Explore <span class="accent">Skill Partners</span></h2>
-    <p class="section-desc" style="margin:0 auto;">Browse profiles and directly message users to schedule a skill exchange session.</p>
+    <p class="section-desc" style="margin:0 auto;">Browse profiles and directly message users to schedule a session or a video class.</p>
   </div>
   <div class="users-grid" id="usersGrid">
     <div style="text-align:center; color:#888; grid-column: 1/-1;">Loading members from database...</div>
   </div>
 </div>
+
 
 <div id="loginModal" class="modal-overlay">
   <div class="modal-box">
@@ -1316,39 +1338,48 @@
   </div>
 </div>
 
-<div id="communityChatWidget" class="chat-widget">
-  <div class="chat-header"><span>🌍 Global Chat</span><span style="cursor:pointer;" onclick="closeModal('communityChatWidget')">✖</span></div>
+<div id="communityChatWidget" class="chat-widget whatsapp-style">
+  <div class="chat-header">
+    <span><i class="fas fa-globe"></i> Global Chat India</span>
+    <span style="cursor:pointer;" onclick="closeModal('communityChatWidget')">✖</span>
+  </div>
   <div class="chat-body" id="communityChatBody"></div>
   <div class="chat-input-area">
-    <input type="text" id="communityMsgInput" class="chat-input" placeholder="Say hi to India...">
-    <button id="communitySendBtn" class="chat-send-btn">➤</button>
+    <input type="text" id="communityMsgInput" class="chat-input" placeholder="Type a message to the community...">
+    <button id="communitySendBtn" class="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
   </div>
 </div>
 
 <div id="privateChatWidget" class="chat-widget">
-  <div class="chat-header"><span id="privateChatTitle">🔒 Private Chat</span><span style="cursor:pointer;" onclick="closeModal('privateChatWidget')">✖</span></div>
-  <div class="chat-body" id="privateChatBody"></div>
+  <div class="chat-header" style="background:var(--navy);">
+    <span id="privateChatTitle">🔒 Private Chat</span>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button onclick="startVideoClass()" style="background:#25d366; border:none; color:white; padding:5px 12px; border-radius:20px; font-size:0.8rem; cursor:pointer; font-weight:bold; animation: pulse 2s infinite;"><i class="fas fa-video"></i> Live Class</button>
+      <span style="cursor:pointer;" onclick="closeModal('privateChatWidget')">✖</span>
+    </div>
+  </div>
+  <div class="chat-body" id="privateChatBody" style="background:#f4f4f4;"></div>
   <div class="chat-input-area">
-    <input type="text" id="privateMsgInput" class="chat-input" placeholder="Message them directly...">
-    <button id="privateSendBtn" class="chat-send-btn">➤</button>
+    <input type="text" id="privateMsgInput" class="chat-input" placeholder="Message to fix time...">
+    <button id="privateSendBtn" class="chat-send-btn" style="background:var(--saffron);"><i class="fas fa-paper-plane"></i></button>
   </div>
 </div>
 
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  // Mobile browsers ke liye popup ki jagah redirect safe hota hai
+  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, setDoc, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // Aapki API Key & Config
+  // Aapki Exact API Key
   const firebaseConfig = {
     apiKey: "AIzaSyCnlFllcoKlSeezpyWoVXb2bvAiU6MW4yI",
     authDomain: "skillswap-india-skill-exchange.firebaseapp.com",
     projectId: "skillswap-india-skill-exchange",
     storageBucket: "skillswap-india-skill-exchange.firebasestorage.app",
     messagingSenderId: "148009546501",
-    appId: "1:148009546501:web:ea5dbfdf52d3cd47fdbd6c",
-    measurementId: "G-ZF0T29SCYW"
+    appId: "1:148009546501:web:ea5dbfdf52d3cd47fdbd6c"
   };
 
   const app = initializeApp(firebaseConfig);
@@ -1360,7 +1391,14 @@
 
   // --- AUTHENTICATION ---
   document.getElementById('googleAuthBtn').addEventListener('click', () => {
-    signInWithPopup(auth, new GoogleAuthProvider()).then(() => closeModal('loginModal')).catch(e => alert("Login Error"));
+    signInWithRedirect(auth, new GoogleAuthProvider()); 
+  });
+
+  // Handle Return from Google
+  getRedirectResult(auth).then((result) => {
+    if (result) { closeModal('loginModal'); }
+  }).catch((error) => {
+    alert("Login Error: Kripya Firebase Console me apna domain verify karein.");
   });
 
   onAuthStateChanged(auth, async (user) => {
@@ -1369,12 +1407,10 @@
       document.getElementById('loginBtnNav').innerText = user.displayName.split(' ')[0];
       document.getElementById('browseMenuBtn').style.display = 'block';
       
-      // Check if user profile exists
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (!userDoc.exists()) {
         document.getElementById('profileModal').style.display = 'flex';
       } else {
-        // Redirect to marketplace if they are on landing page
         if(document.getElementById('landingPage').style.display !== 'none'){
             window.showPage('marketplace');
         }
@@ -1387,11 +1423,11 @@
     }
   });
 
-  // --- SAVE PROFILE ---
+  // --- PROFILE LOGIC ---
   document.getElementById('saveProfileBtn').addEventListener('click', async () => {
     const teach = document.getElementById('teachInput').value;
     const learn = document.getElementById('learnInput').value;
-    if(!teach || !learn) { alert("Please fill both details!"); return; }
+    if(!teach || !learn) { alert("Dono details bharna zaroori hai!"); return; }
     
     await setDoc(doc(db, "users", currentUser.uid), {
       displayName: currentUser.displayName,
@@ -1404,30 +1440,30 @@
     window.showPage('marketplace');
   });
 
-  // --- LOAD MARKETPLACE USERS ---
+  // --- MARKETPLACE LOGIC ---
   window.loadMarketplaceUsers = async function() {
     const grid = document.getElementById('usersGrid');
-    grid.innerHTML = '<div style="text-align:center; grid-column:1/-1;">Fetching members from Database...</div>';
+    grid.innerHTML = '<div style="text-align:center; grid-column:1/-1;">Loading Members...</div>';
     const querySnapshot = await getDocs(collection(db, "users"));
     grid.innerHTML = '';
     
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
       const uid = docSnap.id;
-      if(currentUser && uid === currentUser.uid) return; // Don't show self
+      if(currentUser && uid === currentUser.uid) return; 
 
       grid.innerHTML += `
         <div class="user-card">
           <h3>${data.displayName}</h3>
           <div class="skill-badge badge-teach">Teach: ${data.teaches}</div><br>
           <div class="skill-badge badge-learn">Learn: ${data.learns}</div>
-          <button class="msg-btn" onclick="startPrivateChat('${uid}', '${data.displayName}')">💬 Message</button>
+          <button class="msg-btn" onclick="startPrivateChat('${uid}', '${data.displayName}')"><i class="fas fa-comment"></i> Message</button>
         </div>
       `;
     });
   };
 
-  // --- GLOBAL CHAT ---
+  // --- GLOBAL WHATSAPP CHAT ---
   document.getElementById('communitySendBtn').addEventListener('click', async () => {
     if(!currentUser) { alert("Please login first!"); return; }
     const msgInput = document.getElementById('communityMsgInput');
@@ -1450,11 +1486,11 @@
     chatBody.scrollTop = chatBody.scrollHeight;
   });
 
-  // --- PRIVATE CHAT ---
+  // --- PRIVATE CHAT & VIDEO CLASS LOGIC ---
   window.startPrivateChat = function(targetUid, targetName) {
     if(!currentUser) { alert("Please login first!"); return; }
     activePrivateChatId = currentUser.uid < targetUid ? currentUser.uid + '_' + targetUid : targetUid + '_' + currentUser.uid;
-    document.getElementById('privateChatTitle').innerText = 'Chat w/ ' + targetName.split(' ')[0];
+    document.getElementById('privateChatTitle').innerText = "🔒 " + targetName.split(' ')[0];
     document.getElementById('privateChatWidget').style.display = 'flex';
     document.getElementById('communityChatWidget').style.display = 'none';
 
@@ -1482,16 +1518,31 @@
     }
   });
 
+  // LIVE VIDEO CLASS (Jitsi Integration)
+  window.startVideoClass = function() {
+    if(!activePrivateChatId) return;
+    const roomName = "SkillSwapIndia_" + activePrivateChatId.replace(/[^a-zA-Z0-9]/g, '');
+    const jitsiUrl = "https://meet.jit.si/" + roomName;
+    
+    addDoc(collection(db, "chats_private", activePrivateChatId, "messages"), { 
+        text: "🎥 I have started a Live Class! Click here to join: " + jitsiUrl, 
+        uid: currentUser.uid, 
+        timestamp: serverTimestamp() 
+    });
+    
+    window.open(jitsiUrl, "_blank");
+  };
+
 </script>
 
 <script>
   function openLoginModal() { document.getElementById('loginModal').style.display = 'flex'; }
   function closeModal(id) { document.getElementById(id).style.display = 'none'; }
   
-  function toggleCommunityChat() { 
-    const widget = document.getElementById('communityChatWidget');
-    widget.style.display = (widget.style.display === 'flex') ? 'none' : 'flex';
-    document.getElementById('privateChatWidget').style.display = 'none';
+  function toggleChat(id, isLarge = false) { 
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === 'flex') ? 'none' : 'flex';
+    if(id === 'communityChatWidget') document.getElementById('privateChatWidget').style.display = 'none';
   }
 
   function showPage(page) {
@@ -1506,7 +1557,7 @@
     }
   }
 
-  // Original Scroll Animation Logic
+  // Original Scroll animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1517,7 +1568,7 @@
 
   document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-  // Original Skill Pill logic
+  // Original Skill pill interaction
   document.querySelectorAll('.skill-pill').forEach(pill => {
     pill.addEventListener('click', () => {
       document.querySelectorAll('.skill-pill').forEach(p => p.classList.remove('active'));
@@ -1525,11 +1576,10 @@
     });
   });
 
-  // Original Smooth Scroll (Updated for new navigation)
+  // Original Smooth scroll
   document.querySelectorAll('a.scroll-link').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
-      // Ensure landing page is visible before scrolling
       if(document.getElementById('landingPage').style.display === 'none') {
         showPage('landing');
       }
@@ -1539,6 +1589,17 @@
       }
     });
   });
+
+  // Original Animate stat numbers
+  function animateCounter(el, target) {
+    let count = 0;
+    const step = target / 50;
+    const timer = setInterval(() => {
+      count = Math.min(count + step, target);
+      el.textContent = Math.floor(count) + (el.dataset.suffix || '');
+      if (count >= target) clearInterval(timer);
+    }, 30);
+  }
 </script>
 
 </body>

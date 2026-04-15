@@ -2,161 +2,95 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkillSwap India - Founder Adarsh Kumar Mishra</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SkillSwap India - Adarsh Kumar Mishra</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-  /* 🎨 AAPKA PURE ORIGINAL CSS YAHAN HAI */
-  :root {
-    --saffron: #FF6B35;
-    --deep-saffron: #E85320;
-    --india-green: #1B6B35;
-    --navy: #0A1628;
-    --cream: #FFF8F0;
-    --gold: #F5A623;
-    --text-dark: #1A1A2E;
-    --text-light: #5A6679;
-    --white: #FFFFFF;
-    --shadow: 0 10px 30px rgba(10, 22, 40, 0.1);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; position: relative; }
-  .gradient-text { background: linear-gradient(135deg, var(--saffron) 0%, #FFB64D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Baloo 2', sans-serif; }
+  /* 🎨 100% RESPONSIVE ORIGINAL DESIGN */
+  :root { --saffron: #FF6B35; --navy: #0A1628; --cream: #FFF8F0; --white: #FFFFFF; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+  body { background: var(--cream); color: var(--navy); overflow-x: hidden; width: 100%; }
+  
   .floating-orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.3; z-index: -1; animation: float 15s infinite alternate ease-in-out; }
   .orb-1 { width: 400px; height: 400px; background: #FFD2A8; top: -100px; left: -100px; }
-  .orb-2 { width: 350px; height: 350px; background: #D5FFD0; bottom: -50px; right: -50px; animation-delay: 2s; }
-  .orb-3 { width: 200px; height: 200px; background: #FFEBB0; top: 40% ; left: 60%; animation-delay: 4s; }
-  @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 100% { transform: translateY(50px) rotate(10deg); } }
-  nav { background: var(--white); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.03); position: fixed; width: 100%; top: 0; z-index: 1000; }
-  .logo { font-size: 2rem; font-weight: 800; text-decoration: none; display: flex; align-items: center; }
-  .logo-text { font-family: 'Baloo 2', cursive; color: var(--navy); }
-  .logo-text span { color: var(--saffron); }
-  .logo img { height: 40px; margin-right: 10px; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 1rem; transition: color 0.3s; position: relative; }
-  .nav-links a:after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--saffron); transition: width 0.3s; }
-  .nav-links a:hover:after { width: 100%; }
-  .nav-links a:hover { color: var(--saffron); }
-  .btn { padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: transform 0.3s, box-shadow 0.3s; display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer; }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2); }
-  .btn-outline { background: transparent; color: var(--saffron); border: 2px solid var(--saffron); }
-  .btn-primary { background: var(--saffron); color: var(--white); box-shadow: 0 8px 20px rgba(255, 107, 53, 0.15); }
-  .hero { height: 100vh; display: flex; align-items: center; padding: 0 8%; position: relative; background: radial-gradient(circle at top right, rgba(255, 248, 240, 1) 0%, rgba(255, 239, 219, 1) 100%); }
-  .hero-content { flex: 1; max-width: 650px; margin-top: 60px; }
+  .orb-2 { width: 350px; height: 350px; background: #D5FFD0; bottom: -50px; right: -50px; }
+  @keyframes float { 0% { transform: translateY(0px); } 100% { transform: translateY(30px); } }
+
+  nav { background: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
+  .logo { font-size: 1.8rem; font-weight: 800; text-decoration: none; display: flex; align-items: center; font-family: 'Baloo 2', cursive; color: var(--navy); }
+  .logo span { color: var(--saffron); }
+  .logo img { height: 35px; margin-right: 10px; }
+  .btn-nav { padding: 8px 20px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer; background: var(--saffron); color: var(--white); font-size: 0.95rem; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 50px; gap: 30px; }
+  .hero-content { flex: 1.2; }
   .badge { background: #FFEDDF; color: var(--saffron); padding: 8px 16px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 1.5rem; }
-  .hero-title { font-family: 'Baloo 2', serif; font-size: 4rem; font-weight: 800; line-height: 1.1; color: var(--navy); margin-bottom: 1.5rem; }
-  .hero-p { color: var(--text-light); font-size: 1.25rem; line-height: 1.6; margin-bottom: 2.5rem; }
-  .founder-card { flex: 1; background: var(--white); border-radius: 30px; padding: 30px; box-shadow: 0 20px 50px rgba(10, 22, 40, 0.1); max-width: 450px; margin-left: auto; text-align: center; border: 2px solid rgba(255,107,53,0.1); transform: rotate(1deg); }
-  .founder-photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 8px solid #FFE6D5; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-  .founder-info h3 { font-family: 'Baloo 2', sans-serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 5px; }
-  .founder-info p { color: var(--saffron); font-weight: 600; font-size: 1rem; margin-bottom: 15px; }
-  .skills-carousel { padding: 4rem 8%; background: var(--navy); color: var(--white); position: relative; }
-  .carousel-title { text-align: center; font-family: 'Baloo 2', sans-serif; font-size: 2.5rem; margin-bottom: 3rem; }
-  .carousel-wrapper { overflow: hidden; white-space: nowrap; width: 100%; position: relative; }
-  .carousel-content { display: inline-block; animation: scrollCarousel 40s linear infinite; }
-  @keyframes scrollCarousel { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .skill-item { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); color: var(--white); padding: 15px 25px; border-radius: 10px; margin: 0 10px; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); }
-  .skill-item i { color: var(--saffron); }
-
-  /* 🛠️ NAYE FEATURES KA CSS (Modals & Chat) */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-  .modal-box { background: var(--white); padding: 3rem 2rem; border-radius: 25px; width: 90%; max-width: 420px; text-align: center; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-  .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: #aaa; cursor: pointer; }
-  .close-btn:hover { color: red; }
+  .hero-title { font-family: 'Baloo 2', serif; font-size: 3.5rem; font-weight: 800; line-height: 1.1; color: var(--navy); margin-bottom: 1rem; }
+  .gradient-text { background: linear-gradient(135deg, var(--saffron) 0%, #FFB64D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-p { color: #5A6679; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
   
-  .auth-btn-google { width: 100%; padding: 14px; margin: 15px 0; border-radius: 12px; border: 1px solid #ddd; background: #fff; color: #444; cursor: pointer; font-weight: 600; font-size: 1rem; display: flex; justify-content: center; align-items: center; gap: 12px; transition: all 0.3s; }
-  .auth-btn-google:hover { background: #f9f9f9; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-color: #4285F4; color: #4285F4; }
-  .auth-btn-google img { height: 24px; }
+  .founder-card { flex: 0.8; background: var(--white); border-radius: 30px; padding: 30px; box-shadow: 0 20px 50px rgba(10, 22, 40, 0.1); text-align: center; border: 2px solid rgba(255,107,53,0.1); transform: rotate(1deg); }
+  .founder-photo { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 5px solid #FFE6D5; margin-bottom: 15px; }
+  .founder-info h3 { font-family: 'Baloo 2', sans-serif; font-size: 1.5rem; color: var(--navy); }
+  .founder-info p { color: var(--saffron); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; }
 
-  /* Chat Widget */
-  .chat-widget { display: none; position: fixed; bottom: 30px; right: 30px; width: 350px; height: 500px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(10, 22, 40, 0.2); z-index: 1500; flex-direction: column; overflow: hidden; transition: transform 0.3s, opacity 0.3s; }
-  .chat-header { background: var(--navy); color: var(--white); padding: 18px 20px; font-weight: 600; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
-  .chat-body { flex: 1; padding: 20px; overflow-y: auto; background: #FFF8F3; display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth; }
-  .chat-input-area { display: flex; padding: 15px 20px; border-top: 1px solid #f0f0f0; background: var(--white); gap: 10px; }
-  .chat-input { flex: 1; padding: 12px 20px; border: 2px solid #EEE; border-radius: 50px; outline: none; transition: border-color 0.3s; }
-  .chat-input:focus { border-color: var(--saffron); }
-  .chat-send-btn { background: var(--saffron); color: var(--white); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; }
+  /* UI MODALS & CHAT */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+  .modal-box { background: var(--white); padding: 2.5rem 1.5rem; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; position: relative; }
+  .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; color: #aaa; cursor: pointer; }
+  .auth-btn { width: 100%; padding: 12px; margin: 15px 0; border-radius: 12px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px; }
 
-  /* Messages */
-  .msg-wrapper { max-width: 80%; }
+  .chat-widget { display: none; position: fixed; bottom: 80px; right: 20px; width: 320px; height: 450px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 1500; flex-direction: column; overflow: hidden; }
+  .chat-header { background: var(--navy); color: var(--white); padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+  .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #FFF8F3; display: flex; flex-direction: column; gap: 10px; }
+  .chat-input-area { display: flex; padding: 10px; border-top: 1px solid #f0f0f0; background: var(--white); gap: 10px; }
+  .chat-input { flex: 1; padding: 10px; border: 1px solid #EEE; border-radius: 50px; outline: none; }
+  .chat-send-btn { background: var(--saffron); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+
+  .msg-wrapper { max-width: 85%; display: flex; flex-direction: column; }
   .msg-wrapper.me { align-self: flex-end; }
   .msg-wrapper.other { align-self: flex-start; }
-  .msg-sender { font-size: 0.75rem; color: #888; margin-bottom: 2px; }
-  .msg-text { padding: 10px 15px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; position: relative; }
-  .msg-wrapper.me .msg-text { background: var(--saffron); color: var(--white); border-bottom-right-radius: 4px; text-align: right; }
-  .msg-wrapper.other .msg-text { background: #EEE; color: #111; border-bottom-left-radius: 4px; }
-  .msg-time { font-size: 0.65rem; opacity: 0.6; margin-top: 4px; display: block; }
+  .msg-sender { font-size: 0.7rem; color: #888; margin-bottom: 2px; }
+  .msg-text { padding: 8px 12px; border-radius: 12px; font-size: 0.9rem; }
+  .msg-wrapper.me .msg-text { background: var(--saffron); color: var(--white); border-bottom-right-radius: 3px; }
+  .msg-wrapper.other .msg-text { background: #EEE; color: #111; border-bottom-left-radius: 3px; }
 
-  /* Floating Buttons */
-  .floating-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--navy); color: var(--white); width: 65px; height: 65px; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); font-size: 1.8rem; z-index: 1400; transition: transform 0.3s; }
-  .floating-chat-btn:hover { transform: scale(1.1); }
+  .floating-chat-btn { position: fixed; bottom: 20px; right: 20px; background: var(--navy); color: var(--white); width: 55px; height: 55px; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3); font-size: 1.5rem; z-index: 1400; display: none; }
+
+  @media (max-width: 768px) {
+    .floating-orb { display: none; }
+    .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+    .hero-title { font-size: 2.8rem; }
+    .founder-card { transform: none; width: 100%; max-width: 350px; margin: 0 auto; }
+    .chat-widget { width: 100%; right: 0; bottom: 0; height: 80vh; border-radius: 20px 20px 0 0; }
+    .floating-chat-btn { bottom: 20px; right: 20px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="floating-orb orb-1"></div>
 <div class="floating-orb orb-2"></div>
-<div class="floating-orb orb-3"></div>
 
 <nav>
-  <a href="#" class="logo">
-    <img src="https://img.icons8.com/color/96/india.png" alt="India Flag">
-    <div class="logo-text">Skill<span>Swap</span> India</div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">What it is</a></li>
-    <li><a href="#skills">Exchange</a></li>
-    <li><a href="#vision">Founder's Vision</a></li>
-    <li><button id="loginBtnNav" class="btn btn-primary" onclick="openLoginModal()">Login / Join</button></li>
-  </ul>
+  <a href="#" class="logo"><img src="https://img.icons8.com/color/96/india.png" alt="India">Skill<span>Swap</span></a>
+  <button id="loginBtnNav" class="btn-nav" onclick="openLoginModal()">Login / Join</button>
 </nav>
 
 <section class="hero">
   <div class="hero-content">
     <div class="badge"><i class="fas fa-certificate"></i> Adarsh Mishra's Initiative</div>
-    <h1 class="hero-title">No Money? <br>No Problem. <br><span class="gradient-text">Swap Skills.</span></h1>
-    <p class="hero-p">Welcome to the future of collaboration. SkillSwap India is your free platform to trade knowledge. Teach what you love, learn what you need, without spending a Rupee.</p>
-    <div style="display: flex; gap: 1.5rem;">
-      <a href="#" class="btn btn-primary" onclick="openLoginModal()">Start Swapping Now</a>
-      <a href="#vision" class="btn btn-outline">Meet The Founder</a>
-    </div>
+    <h1 class="hero-title">No Money?<br><span class="gradient-text">Swap Skills.</span></h1>
+    <p class="hero-p">Bharat ka apna platform. Teach what you love, learn what you need, completely free.</p>
+    <button class="btn-nav" onclick="openLoginModal()" style="font-size:1.1rem; padding: 12px 30px;">Start Swapping Now</button>
   </div>
-  
-  <div class="founder-card" id="vision">
-    <img src="founder.jpg" alt="Adarsh Kumar Mishra - Founder" class="founder-photo">
+  <div class="founder-card">
+    <img src="founder.jpg" alt="Adarsh Kumar Mishra" class="founder-photo">
     <div class="founder-info">
       <h3>Adarsh Kumar Mishra</h3>
-      <p>Founder & Visionary, SkillSwap India</p>
-      <p style="color: var(--text-dark); font-weight: normal; font-size: 0.95rem; line-height: 1.6; padding: 0 10px;">"Mera sapna hai ki Bharat ka har ek youth financial constraints se upar uthkar nayi skills seekh sake. Paisa sikhaane aur seekhne ki deewar nahi banna chahiye."</p>
-    </div>
-  </div>
-</section>
-
-<section class="skills-carousel" id="skills">
-  <h2 class="carousel-title">From Digital Marketing to App Development – Swap Everything</h2>
-  <div class="carousel-wrapper">
-    <div class="carousel-content">
-      <div class="skill-item"><i class="fas fa-search-dollar"></i> Digital Marketing</div>
-      <div class="skill-item"><i class="fas fa-code"></i> Python Programming</div>
-      <div class="skill-item"><i class="fas fa-camera"></i> Photography</div>
-      <div class="skill-item"><i class="fas fa-edit"></i> Video Editing</div>
-      <div class="skill-item"><i class="fas fa-palette"></i> Graphic Design</div>
-      <div class="skill-item"><i class="fas fa-font"></i> SEO Optimization</div>
-      <div class="skill-item"><i class="fas fa-ad"></i> Google Ads</div>
-      <div class="skill-item"><i class="fas fa-search-dollar"></i> Digital Marketing</div>
-      <div class="skill-item"><i class="fas fa-code"></i> Python</div>
-    </div>
-    <div class="carousel-content">
-      <div class="skill-item"><i class="fas fa-search-dollar"></i> Digital Marketing</div>
-      <div class="skill-item"><i class="fas fa-code"></i> Python Programming</div>
-      <div class="skill-item"><i class="fas fa-camera"></i> Photography</div>
-      <div class="skill-item"><i class="fas fa-edit"></i> Video Editing</div>
-      <div class="skill-item"><i class="fas fa-palette"></i> Graphic Design</div>
-      <div class="skill-item"><i class="fas fa-font"></i> SEO Optimization</div>
-      <div class="skill-item"><i class="fas fa-ad"></i> Google Ads</div>
-      <div class="skill-item"><i class="fas fa-search-dollar"></i> Digital Marketing</div>
-      <div class="skill-item"><i class="fas fa-code"></i> Python</div>
+      <p>Founder & Visionary</p>
+      <p style="color: var(--navy); font-size: 0.85rem;">"Empowering Indian youth through skill exchange without financial barriers."</p>
     </div>
   </div>
 </section>
@@ -164,35 +98,20 @@
 <div id="loginModal" class="modal-overlay">
   <div class="modal-box">
     <span class="close-btn" onclick="closeLoginModal()">&times;</span>
-    <img src="https://img.icons8.com/color/96/india.png" alt="India Flag" style="height:50px; margin-bottom:15px;">
-    <h2 style="font-family: 'Baloo 2', sans-serif; color: var(--navy);">SkillSwap India se judein!</h2>
-    <p style="font-size: 0.95rem; color: #666; margin-bottom: 25px; line-height: 1.5;">Bina koi personal details share kiye securely connect karein.</p>
-    
-    <button id="googleAuthBtn" class="auth-btn-google">
-      <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Logo"/> Gmail se Login karein
+    <h3 style="font-family: 'Baloo 2', sans-serif; margin-bottom: 10px;">Join SkillSwap India</h3>
+    <button id="googleAuthBtn" class="auth-btn">
+      <img src="https://img.icons8.com/color/48/000000/google-logo.png" style="height:24px;"/> Google se Secure Login
     </button>
-    
-    <div style="margin: 25px 0; color: #aaa; position: relative;">
-      <span style="background:#fff; padding:0 10px; z-index:1; position:relative;">or</span>
-      <div style="position:absolute; top:50%; width:100%; height:1px; background:#eee; left:0;"></div>
-    </div>
-    
-    <p style="color:#aaa; font-size:0.9rem;">Mobile number (OTP) is coming soon!</p>
-    
-    <p style="margin-top: 25px; font-size: 0.85rem;"><a href="admin.html" style="color: var(--navy); text-decoration: none; font-weight: bold;">⚙️ Admin Access</a></p>
+    <p style="font-size:0.8rem; color:#888; margin-top:10px;">Numbers are kept private automatically.</p>
+    <a href="admin.html" style="display:block; margin-top:20px; font-size:0.8rem; color:#aaa; text-decoration:none;">⚙️ Admin Panel</a>
   </div>
 </div>
 
 <button class="floating-chat-btn" id="floatingChatBtn" onclick="toggleChat()"><i class="fas fa-comments"></i></button>
 
 <div id="chatWidget" class="chat-widget">
-  <div class="chat-header">
-    <span>India Community Chat 🇮🇳</span>
-    <span style="cursor:pointer;" onclick="closeChat()">✖</span>
-  </div>
-  <div class="chat-body" id="chatBody">
-    <div style="font-size:0.8rem; color:#A7A9AC; text-align:center; margin-bottom:15px;">Numbers & IDs are hidden for privacy 🔒</div>
-  </div>
+  <div class="chat-header"><span>Global Chat 🔒</span><span style="cursor:pointer;" onclick="closeChat()">✖</span></div>
+  <div class="chat-body" id="chatBody"></div>
   <div class="chat-input-area">
     <input type="text" id="msgInput" class="chat-input" placeholder="Type a message...">
     <button id="sendMsgBtn" class="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
@@ -204,7 +123,6 @@
   import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // AAPKI FIREBASE CONFIGURAION 100% WORKING
   const firebaseConfig = {
     apiKey: "AIzaSyCnlFllcoKlSeezpyWoVXb2bvAiU6MW4yI",
     authDomain: "skillswap-india-skill-exchange.firebaseapp.com",
@@ -220,69 +138,49 @@
   const db = getFirestore(app);
   let currentUser = null;
 
-  // Gmail Login Logic
   document.getElementById('googleAuthBtn').addEventListener('click', () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
-      closeLoginModal();
-    }).catch((error) => {
-      console.error(error);
-      alert("Login fail: Authorized domains key settings update karein GitHub link ke liye.");
-    });
+    signInWithPopup(auth, new GoogleAuthProvider()).then(() => closeLoginModal()).catch(e => alert("Error: Domain check karein."));
   });
 
-  // Listen for login/logout changes (changes button text to user name)
   onAuthStateChanged(auth, (user) => {
     if (user) {
       currentUser = user;
-      document.getElementById('loginBtnNav').innerText = "Namaste, " + user.displayName.split(' ')[0];
-      document.getElementById('floatingChatBtn').style.background = '#FF6B35'; // color on
+      document.getElementById('loginBtnNav').innerText = user.displayName.split(' ')[0];
+      document.getElementById('floatingChatBtn').style.display = 'block';
     } else {
       currentUser = null;
       document.getElementById('loginBtnNav').innerText = "Login / Join";
-      document.getElementById('floatingChatBtn').style.background = '#0A1628'; // color off
+      document.getElementById('floatingChatBtn').style.display = 'none';
+      closeChat();
     }
   });
 
-  // Send Message Logic
   document.getElementById('sendMsgBtn').addEventListener('click', async () => {
-    if(!currentUser) {
-      alert("Bhai, pehle login karna padega!");
-      openLoginModal();
-      return;
-    }
-    const msg = document.getElementById('msgInput').value;
-    if(msg.trim() !== "") {
+    if(!currentUser) return;
+    const msgInput = document.getElementById('msgInput');
+    if(msgInput.value.trim() !== "") {
       try {
         await addDoc(collection(db, "chats"), {
-          text: msg,
-          senderName: currentUser.displayName,
-          uid: currentUser.uid,
-          timestamp: serverTimestamp()
+          text: msgInput.value, senderName: currentUser.displayName, uid: currentUser.uid, timestamp: serverTimestamp()
         });
-        document.getElementById('msgInput').value = "";
+        msgInput.value = "";
       } catch (e) { console.error(e); }
     }
   });
 
-  // Listen for Messages Real-time
   const q = query(collection(db, "chats"), orderBy("timestamp", "asc"));
   onSnapshot(q, (snapshot) => {
     const chatBody = document.getElementById('chatBody');
-    chatBody.innerHTML = '<div style="font-size:0.8rem; color:#888; text-align:center; margin-bottom:15px;">Numbers & IDs are hidden for privacy 🔒</div>';
+    chatBody.innerHTML = '<div style="font-size:0.75rem; color:#aaa; text-align:center; margin-bottom:10px;">Phone numbers are hidden. Talk safely!</div>';
     snapshot.forEach((doc) => {
       const data = doc.data();
       const isMe = currentUser && data.uid === currentUser.uid;
-      const type = isMe ? "me" : "other";
-      
-      const time = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '';
-      
-      const maskedName = isMe ? "You" : data.senderName;
-
+      const align = isMe ? "me" : "other";
+      const displayName = isMe ? "You" : data.senderName;
       chatBody.innerHTML += `
-        <div class="msg-wrapper ${type}">
-          <div class="msg-sender">${maskedName}</div>
-          <div class="msg-text">${data.text}<span class="msg-time">${time}</span></div>
+        <div class="msg-wrapper ${align}">
+          <div class="msg-sender">${displayName}</div>
+          <div class="msg-text">${data.text}</div>
         </div>`;
     });
     chatBody.scrollTop = chatBody.scrollHeight;
@@ -290,7 +188,6 @@
 </script>
 
 <script>
-  // UI Functionality (Not Firebase)
   function openLoginModal() { document.getElementById('loginModal').style.display = 'flex'; }
   function closeLoginModal() { document.getElementById('loginModal').style.display = 'none'; }
   function toggleChat() { 
@@ -299,7 +196,5 @@
   }
   function closeChat() { document.getElementById('chatWidget').style.display = 'none'; }
 </script>
-
 </body>
 </html>
-

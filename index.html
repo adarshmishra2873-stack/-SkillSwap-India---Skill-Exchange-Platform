@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   /* ==========================================================================
-     1. AAPKA 100% ORIGINAL CSS (KUCH BHI DELETE NAHI KIYA)
+     1. AAPKA 100% ORIGINAL CSS (PRESERVED)
      ========================================================================== */
   :root {
     --saffron: #FF6B35;
@@ -34,7 +34,6 @@
     overflow-x: hidden;
   }
 
-  /* ===== HERO SECTION ===== */
   .hero {
     min-height: 100vh;
     background: linear-gradient(135deg, var(--navy) 0%, #16213e 40%, #0f3460 100%);
@@ -52,7 +51,6 @@
     opacity: 0.4;
   }
 
-  /* Floating orbs */
   .orb {
     position: absolute;
     border-radius: 50%;
@@ -83,832 +81,141 @@
   }
 
   .hero-text { color: white; }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,107,53,0.2);
-    border: 1px solid rgba(255,107,53,0.4);
-    border-radius: 50px;
-    padding: 6px 16px;
-    font-size: 0.8rem;
-    color: var(--light-gold);
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 0.6s ease forwards;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
+  .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,107,53,0.2); border: 1px solid rgba(255,107,53,0.4); border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; color: var(--light-gold); margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease forwards; letter-spacing: 0.5px; text-transform: uppercase; }
   .badge::before { content: '🚀'; }
+  .hero-title { font-family: 'Baloo 2', cursive; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; animation: fadeInUp 0.7s ease 0.1s both; }
+  .hero-title .highlight { background: linear-gradient(135deg, var(--saffron), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; line-height: 1.7; animation: fadeInUp 0.7s ease 0.2s both; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.7s ease 0.3s both; }
+  .btn-primary { background: linear-gradient(135deg, var(--saffron), var(--deep-saffron)); color: white; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 25px rgba(255,107,53,0.4); display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255,107,53,0.5); }
+  .btn-secondary { background: transparent; color: white; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-secondary:hover { border-color: var(--saffron); background: rgba(255,107,53,0.1); }
 
-  .hero-title {
-    font-family: 'Baloo 2', cursive;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    animation: fadeInUp 0.7s ease 0.1s both;
-  }
-
-  .hero-title .highlight {
-    background: linear-gradient(135deg, var(--saffron), var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-    animation: fadeInUp 0.7s ease 0.2s both;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    animation: fadeInUp 0.7s ease 0.3s both;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
-    color: white;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 8px 25px rgba(255,107,53,0.4);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(255,107,53,0.5);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    border: 2px solid rgba(255,255,255,0.3);
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--saffron);
-    background: rgba(255,107,53,0.1);
-  }
-
-  /* ===== FOUNDER CARD ===== */
-  .hero-visual {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    animation: fadeInRight 0.8s ease 0.2s both;
-  }
-
-  .founder-card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 24px;
-    padding: 2rem;
-    text-align: center;
-    width: 320px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .founder-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--saffron), var(--gold), var(--india-green));
-  }
-
-  .founder-photo-wrapper {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 1.2rem;
-  }
-
-  .founder-photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top center;
-    border: 3px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, var(--saffron), var(--gold)) border-box;
-    box-shadow: 0 8px 32px rgba(255,107,53,0.3);
-  }
-
-  .online-badge {
-    position: absolute;
-    bottom: 6px;
-    right: 6px;
-    width: 24px;
-    height: 24px;
-    background: var(--india-green);
-    border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-  }
-
-  .founder-name {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.2rem;
-  }
-
-  .founder-role {
-    font-size: 0.8rem;
-    color: var(--saffron);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-  }
-
-  .founder-stats {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 1rem;
-  }
-
+  .hero-visual { position: relative; display: flex; justify-content: center; animation: fadeInRight 0.8s ease 0.2s both; }
+  .founder-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 2rem; text-align: center; width: 320px; position: relative; overflow: hidden; }
+  .founder-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--saffron), var(--gold), var(--india-green)); }
+  .founder-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid transparent; background: linear-gradient(white, white) padding-box, linear-gradient(135deg, var(--saffron), var(--gold)) border-box; box-shadow: 0 8px 32px rgba(255,107,53,0.3); margin-bottom: 15px;}
+  .online-badge { position: absolute; bottom: 6px; right: 6px; width: 24px; height: 24px; background: var(--india-green); border-radius: 50%; border: 3px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; }
+  .founder-name { font-family: 'Baloo 2', cursive; font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 0.2rem; }
+  .founder-role { font-size: 0.8rem; color: var(--saffron); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+  .founder-stats { display: flex; justify-content: center; gap: 1.5rem; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem; }
   .stat { text-align: center; }
-  .stat-num {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-  }
-  .stat-label {
-    font-size: 0.65rem;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
+  .stat-num { font-family: 'Baloo 2', cursive; font-size: 1.4rem; font-weight: 700; color: var(--gold); display: block; }
+  .stat-label { font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .skill-tag { background: rgba(255,107,53,0.15); border: 1px solid rgba(255,107,53,0.3); color: var(--light-gold); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; }
 
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: center;
-  }
-
-  .skill-tag {
-    background: rgba(255,107,53,0.15);
-    border: 1px solid rgba(255,107,53,0.3);
-    color: var(--light-gold);
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-  }
-
-  /* ===== NAVBAR ===== */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(10, 22, 40, 0.9);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255,107,53,0.2);
-  }
-
-  .logo {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: white;
-    text-decoration: none;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10, 22, 40, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,107,53,0.2); }
+  .logo { font-family: 'Baloo 2', cursive; font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; cursor:pointer;}
   .logo span { color: var(--saffron); }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
-  }
-
-  .nav-links a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-    cursor: pointer;
-  }
-
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; cursor: pointer; }
   .nav-links a:hover { color: var(--saffron); }
+  .nav-cta { background: var(--saffron); color: white !important; padding: 8px 20px; border-radius: 50px; font-weight: 600 !important; cursor:pointer; border:none; font-family:'Poppins', sans-serif;}
 
-  .nav-cta {
-    background: var(--saffron);
-    color: white !important;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600 !important;
-    border: none;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  /* ===== HOW IT WORKS ===== */
-  .section {
-    padding: 6rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    display: inline-block;
-    background: rgba(255,107,53,0.1);
-    color: var(--saffron);
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-family: 'Baloo 2', cursive;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
+  .section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .section-label { display: inline-block; background: rgba(255,107,53,0.1); color: var(--saffron); padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+  .section-title { font-family: 'Baloo 2', cursive; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
   .section-title .accent { color: var(--saffron); }
+  .section-desc { font-size: 1.1rem; color: var(--text-mid); max-width: 600px; line-height: 1.7; margin-bottom: 3rem; }
 
-  .section-desc {
-    font-size: 1.1rem;
-    color: var(--text-mid);
-    max-width: 600px;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-  }
-
-  /* Steps */
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-
-  .step-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .step-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(255,107,53,0.12);
-  }
-
-  .step-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--saffron), var(--gold));
-    transform: scaleX(0);
-    transition: transform 0.3s;
-    transform-origin: left;
-  }
-
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+  .step-card { background: var(--card-bg); border-radius: 20px; padding: 2rem; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 20px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+  .step-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(255,107,53,0.12); }
+  .step-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--saffron), var(--gold)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
   .step-card:hover::before { transform: scaleX(1); }
+  .step-num { font-family: 'Baloo 2', cursive; font-size: 3rem; font-weight: 800; color: rgba(255,107,53,0.1); line-height: 1; margin-bottom: 0.5rem; }
+  .step-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .step-title { font-family: 'Baloo 2', cursive; font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .step-desc { color: var(--text-mid); font-size: 0.9rem; line-height: 1.6; }
 
-  .step-num {
-    font-family: 'Baloo 2', cursive;
-    font-size: 3rem;
-    font-weight: 800;
-    color: rgba(255,107,53,0.1);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .step-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .step-title {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.5rem;
-  }
-
-  .step-desc {
-    color: var(--text-mid);
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  /* ===== FEATURES ===== */
-  .features-bg {
-    background: linear-gradient(135deg, #0A1628 0%, #16213e 100%);
-    padding: 6rem 2rem;
-  }
-
-  .features-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .feature-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: all 0.3s;
-  }
-
-  .feature-card:hover {
-    background: rgba(255,107,53,0.1);
-    border-color: rgba(255,107,53,0.3);
-    transform: translateY(-4px);
-  }
-
-  .feature-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
-    box-shadow: 0 8px 20px rgba(255,107,53,0.3);
-  }
-
-  .feature-title {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.5rem;
-  }
-
-  .feature-desc {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
-
+  .features-bg { background: linear-gradient(135deg, #0A1628 0%, #16213e 100%); padding: 6rem 2rem; }
+  .features-inner { max-width: 1200px; margin: 0 auto; }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .feature-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; transition: all 0.3s; cursor:pointer;}
+  .feature-card:hover { background: rgba(255,107,53,0.1); border-color: rgba(255,107,53,0.3); transform: translateY(-4px); }
+  .feature-icon { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, var(--saffron), var(--deep-saffron)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.2rem; box-shadow: 0 8px 20px rgba(255,107,53,0.3); }
+  .feature-title { font-family: 'Baloo 2', cursive; font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+  .feature-desc { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
   .features-bg .section-title { color: white; }
   .features-bg .section-desc { color: rgba(255,255,255,0.6); }
 
-  /* ===== SKILLS SHOWCASE ===== */
   .skills-section { background: white; padding: 6rem 2rem; }
   .skills-inner { max-width: 1200px; margin: 0 auto; }
-
-  .skills-carousel {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-
-  .skill-pill {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--cream);
-    border: 2px solid transparent;
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .skill-pill:hover, .skill-pill.active {
-    background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, var(--saffron), var(--gold)) border-box;
-    color: var(--saffron);
-  }
-
-  .skill-pill .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--saffron);
-    opacity: 0.5;
-  }
-
+  .skills-carousel { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .skill-pill { display: flex; align-items: center; gap: 8px; background: var(--cream); border: 2px solid transparent; border-radius: 50px; padding: 10px 20px; font-size: 0.9rem; font-weight: 500; color: var(--text-dark); cursor: pointer; transition: all 0.3s; }
+  .skill-pill:hover, .skill-pill.active { background: linear-gradient(white, white) padding-box, linear-gradient(135deg, var(--saffron), var(--gold)) border-box; color: var(--saffron); }
+  .skill-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--saffron); opacity: 0.5; }
   .skill-pill:hover .dot, .skill-pill.active .dot { opacity: 1; }
 
-  /* ===== CREDIT SYSTEM ===== */
-  .credits-section {
-    background: linear-gradient(135deg, var(--cream), #ffe8d6);
-    padding: 6rem 2rem;
-  }
-
-  .credits-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .credit-visual {
-    background: var(--navy);
-    border-radius: 24px;
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .credit-visual::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,107,53,0.1) 60deg, transparent 120deg);
-    animation: spin 10s linear infinite;
-  }
-
+  .credits-section { background: linear-gradient(135deg, var(--cream), #ffe8d6); padding: 6rem 2rem; }
+  .credits-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .credit-visual { background: var(--navy); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; }
+  .credit-visual::before { content: ''; position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent 0deg, rgba(255,107,53,0.1) 60deg, transparent 120deg); animation: spin 10s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  .credit-ui {
-    position: relative;
-    z-index: 2;
-  }
-
-  .credit-title-small {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-  }
-
-  .credit-balance {
-    font-family: 'Baloo 2', cursive;
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  .credit-balance span {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.5);
-    font-weight: 400;
-  }
-
-  .credit-transactions {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .txn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255,255,255,0.05);
-    padding: 10px 14px;
-    border-radius: 10px;
-  }
-
+  .credit-ui { position: relative; z-index: 2; }
+  .credit-title-small { color: rgba(255,255,255,0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+  .credit-balance { font-family: 'Baloo 2', cursive; font-size: 3.5rem; font-weight: 800; color: var(--gold); margin-bottom: 0.5rem; }
+  .credit-balance span { font-size: 1rem; color: rgba(255,255,255,0.5); font-weight: 400; }
+  .credit-transactions { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+  .txn { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px 14px; border-radius: 10px; }
   .txn-info { display: flex; align-items: center; gap: 10px; }
   .txn-icon { font-size: 1.2rem; }
-
-  .txn-name {
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-
-  .txn-time {
-    color: rgba(255,255,255,0.4);
-    font-size: 0.7rem;
-  }
-
-  .txn-amount {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
-
+  .txn-name { color: white; font-size: 0.85rem; font-weight: 500; }
+  .txn-time { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+  .txn-amount { font-family: 'Baloo 2', cursive; font-size: 1.1rem; font-weight: 700; }
   .txn-amount.earn { color: #4ade80; }
   .txn-amount.spend { color: var(--saffron); }
 
-  /* ===== TESTIMONIALS ===== */
-  .testimonials {
-    background: white;
-    padding: 6rem 2rem;
-  }
-
+  .testimonials { background: white; padding: 6rem 2rem; }
   .testimonials-inner { max-width: 1200px; margin: 0 auto; }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .testimonial-card {
-    background: var(--cream);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.05);
-    position: relative;
-  }
-
-  .testimonial-card::before {
-    content: '"';
-    font-family: 'Baloo 2', cursive;
-    font-size: 5rem;
-    color: rgba(255,107,53,0.1);
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    line-height: 1;
-  }
-
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .testimonial-card { background: var(--cream); border-radius: 20px; padding: 2rem; border: 1px solid rgba(0,0,0,0.05); position: relative; }
+  .testimonial-card::before { content: '"'; font-family: 'Baloo 2', cursive; font-size: 5rem; color: rgba(255,107,53,0.1); position: absolute; top: 10px; right: 20px; line-height: 1; }
   .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.8rem; }
+  .testimonial-text { color: var(--text-mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem; }
+  .testimonial-author { display: flex; align-items: center; gap: 10px; }
+  .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--saffron), var(--gold)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 0.9rem; }
+  .author-name { font-weight: 600; color: var(--navy); font-size: 0.9rem; }
+  .author-skill { font-size: 0.75rem; color: var(--saffron); }
 
-  .testimonial-text {
-    color: var(--text-mid);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1.2rem;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .author-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--saffron), var(--gold));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: white;
-    font-size: 0.9rem;
-  }
-
-  .author-name {
-    font-weight: 600;
-    color: var(--navy);
-    font-size: 0.9rem;
-  }
-
-  .author-skill {
-    font-size: 0.75rem;
-    color: var(--saffron);
-  }
-
-  /* ===== CTA SECTION ===== */
-  .cta-section {
-    background: linear-gradient(135deg, var(--saffron) 0%, var(--deep-saffron) 100%);
-    padding: 6rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
+  .cta-section { background: linear-gradient(135deg, var(--saffron) 0%, var(--deep-saffron) 100%); padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
   .cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+  .cta-title { font-family: 'Baloo 2', cursive; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: white; margin-bottom: 1rem; }
+  .cta-desc { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.7; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: white; color: var(--saffron); padding: 14px 32px; border-radius: 50px; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 25px rgba(0,0,0,0.15); display: inline-flex; align-items: center; gap: 8px; }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+  .btn-outline-white { background: transparent; color: white; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s; }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
 
-  .cta-title {
-    font-family: 'Baloo 2', cursive;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1rem;
-  }
-
-  .cta-desc {
-    color: rgba(255,255,255,0.85);
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
-  }
-
-  .cta-btns {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-white {
-    background: white;
-    color: var(--saffron);
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-white:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  }
-
-  .btn-outline-white {
-    background: transparent;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    border: 2px solid rgba(255,255,255,0.5);
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .btn-outline-white:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: white;
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.7);
-    padding: 3rem 2rem 2rem;
-    text-align: center;
-  }
-
-  .footer-logo {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 0.5rem;
-  }
-
+  footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 3rem 2rem 2rem; text-align: center; }
+  .footer-logo { font-family: 'Baloo 2', cursive; font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 0.5rem; }
   .footer-logo span { color: var(--saffron); }
-
-  .footer-tagline {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    opacity: 0.6;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-  }
-
-  .footer-links a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.3s;
-  }
-
+  .footer-tagline { font-size: 0.9rem; margin-bottom: 1.5rem; opacity: 0.6; }
+  .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
   .footer-links a:hover { color: var(--saffron); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.8rem; opacity: 0.5; }
 
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 1.5rem;
-    font-size: 0.8rem;
-    opacity: 0.5;
-  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+  .india-strip { display: flex; height: 4px; background: linear-gradient(90deg, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%); }
+  .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+  .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
 
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(40px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  /* ===== INDIA STRIP ===== */
-  .india-strip {
-    display: flex;
-    height: 4px;
-    background: linear-gradient(90deg, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
-  }
-
-  /* Scroll animation for cards */
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-  }
-
-  .animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
-    .hero-container {
-      grid-template-columns: 1fr;
-      text-align: center;
-      padding-top: 100px;
-      padding-bottom: 3rem;
-    }
-
+    .hero-container { grid-template-columns: 1fr; text-align: center; padding-top: 100px; padding-bottom: 3rem; }
     .hero-cta { justify-content: center; }
-
-    .credits-inner {
-      grid-template-columns: 1fr;
-    }
-
+    .credits-inner { grid-template-columns: 1fr; }
     .nav-links { display: none; }
-
     .founder-card { width: 280px; margin: 0 auto; }
   }
 
   /* ==========================================================================
-     2. 🔥 INBUILT ADVANCED FEATURES (MARKETPLACE, WHATSAPP-CHAT, MODALS)
+     2. 🔥 INBUILT ADVANCED FEATURES CSS (MARKETPLACE, WHATSAPP-CHAT, MODALS)
      ========================================================================== */
 
   .hidden-page { display: none !important; }
@@ -916,7 +223,7 @@
   /* Marketplace Styles */
   #marketplacePage { padding: 120px 2rem 6rem; max-width: 1200px; margin: 0 auto; min-height: 100vh; }
   .users-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-  .user-card { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s; }
+  .user-card { background: white; border-radius: 20px; padding: 2rem; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
   .user-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,107,53,0.1); }
   .user-card h3 { font-family: 'Baloo 2', cursive; color: var(--navy); font-size: 1.4rem; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
   .skill-badge { display: inline-block; padding: 5px 12px; border-radius: 5px; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
@@ -925,7 +232,7 @@
   .msg-btn { width: 100%; margin-top: 15px; background: var(--navy); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; font-family:'Poppins';}
   .msg-btn:hover { background: var(--saffron); }
 
-  /* WHATSAPP-STYLE GLOBAL CHAT (Large for Desktop, Normal for Mobile) */
+  /* WHATSAPP-STYLE CHAT (Large for Desktop, Normal for Mobile) */
   .chat-widget {
     display: none; position: fixed; bottom: 20px; right: 20px; 
     width: 350px; height: 500px; background: white; border-radius: 15px;
@@ -934,18 +241,18 @@
     transition: all 0.3s ease-in-out;
   }
   
-  /* The Magic WhatsApp Web Effect for Desktop */
+  /* Badi screen par center me bada khulega (WhatsApp jaisa) */
   @media (min-width: 1024px) {
     .chat-widget.whatsapp-style {
-      width: 900px; height: 80vh; 
-      bottom: 10vh; right: calc(50% - 450px);
+      width: 800px; height: 80vh; 
+      bottom: 10vh; right: calc(50% - 400px);
     }
   }
 
   .chat-header { background: #075e54; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Baloo 2', cursive; font-size: 1.2rem; }
   .chat-body { flex: 1; padding: 20px; overflow-y: auto; background: #e5ddd5; display: flex; flex-direction: column; gap: 10px; }
   
-  /* Message Bubbles - WhatsApp Style */
+  /* Message Bubbles */
   .msg-wrapper { max-width: 75%; padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; position: relative; display: flex; flex-direction: column;}
   .msg-wrapper.me { align-self: flex-end; background: #dcf8c6; border-top-right-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
   .msg-wrapper.other { align-self: flex-start; background: white; border-top-left-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
@@ -965,9 +272,8 @@
   .input-group label { font-size: 0.85rem; color: var(--text-mid); font-weight: 600; margin-bottom: 5px; display: block; }
   .input-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Poppins'; }
 
-  /* Live Class Pulse Animation */
+  /* Live Video Call Animation */
   @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
 </style>
 </head>
 <body>
@@ -979,8 +285,7 @@
   <ul class="nav-links">
     <li><a href="javascript:void(0)" onclick="showPage('landing')">Home</a></li>
     <li><a href="#how" class="scroll-link">Kaise Kaam Karta Hai</a></li>
-    <li><a href="#features" class="scroll-link">Features</a></li>
-    <li><a href="javascript:void(0)" onclick="toggleChat('communityChatWidget', true)">🌍 Global Chat</a></li>
+    <li><a href="javascript:void(0)" onclick="toggleChat('communityChatWidget')">🌍 Global Chat</a></li>
     <li id="browseMenuBtn" style="display:none;"><a href="javascript:void(0)" onclick="showPage('marketplace')" style="color:var(--saffron); font-weight:bold;">🔍 Browse Skills</a></li>
     <li><button id="loginBtnNav" class="nav-cta" onclick="openLoginModal()" style="border:none; cursor:pointer; font-family:'Poppins';">Login / Join</button></li>
   </ul>
@@ -1006,7 +311,7 @@
           English sikhao, cooking seekho. Har Indian ka talent valuable hai! 🇮🇳
         </p>
         <div class="hero-cta">
-          <a href="javascript:void(0)" onclick="openLoginModal()" class="btn-primary">🚀 Free Join Karo</a>
+          <button onclick="openLoginModal()" class="btn-primary">🚀 Free Join Karo</button>
           <a href="#how" class="btn-secondary scroll-link">▶ Kaise Kaam Karta Hai</a>
         </div>
       </div>
@@ -1083,35 +388,35 @@
       <p class="section-desc">Rural India se urban India tak, har kisi ke liye designed platform.</p>
 
       <div class="features-grid">
-        <div class="feature-card animate-on-scroll">
+        <div class="feature-card animate-on-scroll" onclick="openLoginModal()">
           <div class="feature-icon">🧠</div>
           <h3 class="feature-title">AI Smart Matching</h3>
-          <p class="feature-desc">Hamara algorithm tumhare skill level, location, aur availability ke hisaab se best match dhundta hai. No more searching manually!</p>
+          <p class="feature-desc">Hamara algorithm tumhare skill level, location, aur availability ke hisaab se best match dhundta hai.</p>
         </div>
-        <div class="feature-card animate-on-scroll" style="transition-delay: 0.1s">
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.1s" onclick="openLoginModal()">
           <div class="feature-icon">💰</div>
           <h3 class="feature-title">SkillCredit System</h3>
-          <p class="feature-desc">1 hour sikhao = 1 SkillCredit. Credits se koi bhi skill seekho. Fair exchange, zero paise! Credits real money mein bhi convert ho sakte hain.</p>
+          <p class="feature-desc">1 hour sikhao = 1 SkillCredit. Credits se koi bhi skill seekho. Fair exchange, zero paise!</p>
         </div>
-        <div class="feature-card animate-on-scroll" style="transition-delay: 0.2s">
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.2s" onclick="openLoginModal()">
           <div class="feature-icon">🗣️</div>
           <h3 class="feature-title">22+ Bhasha Support</h3>
-          <p class="feature-desc">Hindi, Bhojpuri, Tamil, Telugu, Bengali - apni bhasha mein seekho. Rural India ko target karte hue local language priority.</p>
+          <p class="feature-desc">Hindi, Bhojpuri, Tamil, Telugu, Bengali - apni bhasha mein seekho.</p>
         </div>
-        <div class="feature-card animate-on-scroll" style="transition-delay: 0.3s">
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.3s" onclick="openLoginModal()">
           <div class="feature-icon">🛡️</div>
           <h3 class="feature-title">Verified Profiles</h3>
-          <p class="feature-desc">Aadhaar-based verification aur skill tests se ensure karte hain ki every teacher genuinely qualified hai. 100% safe platform.</p>
+          <p class="feature-desc">Aadhaar-based verification aur skill tests se ensure karte hain ki every teacher genuinely qualified hai.</p>
         </div>
-        <div class="feature-card animate-on-scroll" style="transition-delay: 0.4s">
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.4s" onclick="openLoginModal()">
           <div class="feature-icon">📱</div>
           <h3 class="feature-title">Mobile-First Design</h3>
-          <p class="feature-desc">Low bandwidth bhi chalega! 2G/3G pe bhi smooth experience. India ke har corner se accessible.</p>
+          <p class="feature-desc">Low bandwidth bhi chalega! 2G/3G pe bhi smooth experience.</p>
         </div>
-        <div class="feature-card animate-on-scroll" style="transition-delay: 0.5s">
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.5s" onclick="openLoginModal()">
           <div class="feature-icon">🏆</div>
           <h3 class="feature-title">Community Events</h3>
-          <p class="feature-desc">Weekly skill challenges, hackathons, aur village workshops. Offline events bhi organize karte hain tier-2 aur tier-3 cities mein.</p>
+          <p class="feature-desc">Weekly skill challenges, hackathons, aur village workshops. Offline events bhi organize karte hain.</p>
         </div>
       </div>
     </div>
@@ -1134,12 +439,6 @@
         <div class="skill-pill"><span class="dot"></span>🧘 Yoga</div>
         <div class="skill-pill"><span class="dot"></span>💇 Stitching / Fashion</div>
         <div class="skill-pill"><span class="dot"></span>🏋️ Fitness Training</div>
-        <div class="skill-pill"><span class="dot"></span>📱 Social Media</div>
-        <div class="skill-pill"><span class="dot"></span>🌾 Organic Farming</div>
-        <div class="skill-pill"><span class="dot"></span>🔧 Car Repair</div>
-        <div class="skill-pill"><span class="dot"></span>📚 Tutoring</div>
-        <div class="skill-pill"><span class="dot"></span>🎭 Dance / Theatre</div>
-        <div class="skill-pill"><span class="dot"></span>✏️ Drawing / Painting</div>
       </div>
     </div>
   </section>
@@ -1154,33 +453,15 @@
 
           <div class="credit-transactions">
             <div class="txn">
-              <div class="txn-info">
-                <span class="txn-icon">💻</span>
-                <div>
-                  <div class="txn-name">Web Dev sikhaya - Rahul ko</div>
-                  <div class="txn-time">2 ghante pehle</div>
-                </div>
-              </div>
+              <div class="txn-info"><span class="txn-icon">💻</span><div><div class="txn-name">Web Dev sikhaya - Rahul ko</div><div class="txn-time">2 ghante pehle</div></div></div>
               <span class="txn-amount earn">+2 SC</span>
             </div>
             <div class="txn">
-              <div class="txn-info">
-                <span class="txn-icon">🎵</span>
-                <div>
-                  <div class="txn-name">Guitar class - Priya se</div>
-                  <div class="txn-time">Aaj subah</div>
-                </div>
-              </div>
+              <div class="txn-info"><span class="txn-icon">🎵</span><div><div class="txn-name">Guitar class - Priya se</div><div class="txn-time">Aaj subah</div></div></div>
               <span class="txn-amount spend">-1 SC</span>
             </div>
             <div class="txn">
-              <div class="txn-info">
-                <span class="txn-icon">📊</span>
-                <div>
-                  <div class="txn-name">Excel Training - 3 students</div>
-                  <div class="txn-time">Kal</div>
-                </div>
-              </div>
+              <div class="txn-info"><span class="txn-icon">📊</span><div><div class="txn-name">Excel Training - 3 students</div><div class="txn-time">Kal</div></div></div>
               <span class="txn-amount earn">+3 SC</span>
             </div>
           </div>
@@ -1190,33 +471,7 @@
       <div class="animate-on-scroll" style="transition-delay: 0.2s">
         <span class="section-label">SkillCredit Economy</span>
         <h2 class="section-title">Paise Nahi, <span class="accent">Skills Exchange Karo!</span></h2>
-        <p class="section-desc" style="margin-bottom: 2rem;">
-          Hamara unique credit system ensure karta hai ki koi bhi skill seekhne se nahi ruke. Ek ghanta sikhao, ek ghanta seekho — yahi SkillSwap ka formula hai!
-        </p>
-
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <div style="display: flex; align-items: center; gap: 1rem; background: white; border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
-            <div style="width: 40px; height: 40px; background: #FFF0E5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">⏰</div>
-            <div>
-              <div style="font-weight: 600; color: var(--navy);">1 Hour = 1 SkillCredit</div>
-              <div style="font-size: 0.8rem; color: var(--text-mid);">Fair aur transparent exchange system</div>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1rem; background: white; border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
-            <div style="width: 40px; height: 40px; background: #E5F5ED; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">💳</div>
-            <div>
-              <div style="font-weight: 600; color: var(--navy);">Credits = Real Money</div>
-              <div style="font-size: 0.8rem; color: var(--text-mid);">Sponsors aur brands se real cash kamao</div>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1rem; background: white; border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
-            <div style="width: 40px; height: 40px; background: #E5EEFF; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">🎁</div>
-            <div>
-              <div style="font-weight: 600; color: var(--navy);">Referral Bonus</div>
-              <div style="font-size: 0.8rem; color: var(--text-mid);">Dost ko invite karo, 5 free SkillCredits pao</div>
-            </div>
-          </div>
-        </div>
+        <p class="section-desc" style="margin-bottom: 2rem;">Hamara unique credit system ensure karta hai ki koi bhi skill seekhne se nahi ruke. Ek ghanta sikhao, ek ghanta seekho!</p>
       </div>
     </div>
   </section>
@@ -1231,33 +486,14 @@
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">Maine guitar sikhaya aur badle mein Python coding seekhi. Ab main freelancer hoon aur monthly ₹40,000 kama raha hoon! SkillSwap ne meri zindagi badal di.</p>
           <div class="testimonial-author">
-            <div class="author-avatar">RK</div>
-            <div>
-              <div class="author-name">Rohit Kumar</div>
-              <div class="author-skill">Jaipur • Guitar → Python Developer</div>
-            </div>
+            <div class="author-avatar">RK</div><div><div class="author-name">Rohit Kumar</div><div class="author-skill">Jaipur • Guitar → Python Developer</div></div>
           </div>
         </div>
         <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.1s">
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">Ek gaon ki ladki thi, English nahi aati thi. Yahan stitching sikhate sikhate fluent English ho gayi! Ab BPO mein job hai. Thank you Adarsh bhai!</p>
           <div class="testimonial-author">
-            <div class="author-avatar">SP</div>
-            <div>
-              <div class="author-name">Sunita Patel</div>
-              <div class="author-skill">Lucknow • Stitching → English Speaker</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.2s">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Rural Bihar mein rahte hain, lekin digital marketing seekh liya SkillSwap ke through. Organic farming ka knowledge exchange kiya. Revolutionary idea hai yeh!</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">AM</div>
-            <div>
-              <div class="author-name">Amit Yadav</div>
-              <div class="author-skill">Patna • Farming → Digital Marketing</div>
-            </div>
+            <div class="author-avatar">SP</div><div><div class="author-name">Sunita Patel</div><div class="author-skill">Lucknow • Stitching → English Speaker</div></div>
           </div>
         </div>
       </div>
@@ -1267,36 +503,24 @@
   <section id="join" class="cta-section">
     <div class="cta-inner">
       <h2 class="cta-title">Aaj Hi Join Karo — <br>It's 100% FREE! 🎉</h2>
-      <p class="cta-desc">
-        5000+ Indians already exchange kar rahe hain apni skills. Tum kab join karte ho? Adarsh Mishra ka vision hai ki har Indian apna talent use karke aage badhe!
-      </p>
+      <p class="cta-desc">5000+ Indians already exchange kar rahe hain apni skills. Tum kab join karte ho?</p>
       <div class="cta-btns">
         <button onclick="openLoginModal()" class="btn-white">🚀 Free Account Banao</button>
         <button class="btn-outline-white">📱 App Download Karo</button>
       </div>
-      <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1.5rem;">
-        ✓ No credit card required &nbsp;✓ Hindi mein support &nbsp;✓ Mobile friendly
-      </p>
+      <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1.5rem;">✓ No credit card required &nbsp;✓ Hindi mein support &nbsp;✓ Mobile friendly</p>
     </div>
   </section>
 
   <footer>
     <div class="footer-logo">Skill<span>Swap</span> India</div>
     <p class="footer-tagline">Apna Skill Exchange Karo, Naya Seekho — Founded by Adarsh Mishra</p>
-    <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#">About Adarsh</a>
-      <a href="#">How It Works</a>
-      <a href="#">Skills List</a>
-      <a href="#">SkillCredits</a>
-      <a href="#">Blog</a>
-      <a href="#">Contact</a>
-    </div>
     <div class="footer-bottom">
       <p>© 2026 SkillSwap India — Founded by Adarsh Mishra, Shahjahanpur, Uttar Pradesh 🇮🇳</p>
       <p style="margin-top: 0.3rem;">Made with ❤️ for Bharat • Jai Hind!</p>
     </div>
   </footer>
+
 </div> 
 <div id="marketplacePage" class="hidden-page">
   <div style="text-align: center; margin-bottom: 2rem;">
@@ -1368,11 +592,9 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  // Mobile browsers ke liye popup ki jagah redirect safe hota hai
   import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, setDoc, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // Aapki Exact API Key
   const firebaseConfig = {
     apiKey: "AIzaSyCnlFllcoKlSeezpyWoVXb2bvAiU6MW4yI",
     authDomain: "skillswap-india-skill-exchange.firebaseapp.com",
@@ -1394,7 +616,6 @@
     signInWithRedirect(auth, new GoogleAuthProvider()); 
   });
 
-  // Handle Return from Google
   getRedirectResult(auth).then((result) => {
     if (result) { closeModal('loginModal'); }
   }).catch((error) => {
@@ -1518,7 +739,7 @@
     }
   });
 
-  // LIVE VIDEO CLASS (Jitsi Integration)
+  // LIVE VIDEO CLASS
   window.startVideoClass = function() {
     if(!activePrivateChatId) return;
     const roomName = "SkillSwapIndia_" + activePrivateChatId.replace(/[^a-zA-Z0-9]/g, '');
@@ -1539,7 +760,7 @@
   function openLoginModal() { document.getElementById('loginModal').style.display = 'flex'; }
   function closeModal(id) { document.getElementById(id).style.display = 'none'; }
   
-  function toggleChat(id, isLarge = false) { 
+  function toggleChat(id) { 
     const el = document.getElementById(id);
     el.style.display = (el.style.display === 'flex') ? 'none' : 'flex';
     if(id === 'communityChatWidget') document.getElementById('privateChatWidget').style.display = 'none';

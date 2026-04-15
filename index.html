@@ -2,64 +2,914 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>SkillSwap India - Adarsh Kumar Mishra</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSwap India - Adarsh Mishra</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ===== 100% ORIGINAL DESIGN & VARIABLES ===== */
   :root {
-    --saffron: #FF6B35; --deep-saffron: #E85320; --india-green: #1B6B35; --navy: #0A1628;
-    --cream: #FFF8F0; --gold: #F5A623; --light-gold: #FFE0A3; --white: #FFFFFF;
-    --text-dark: #1A1A2E; --text-mid: #4A4A6A; --card-bg: rgba(255,255,255,0.92);
+    --saffron: #FF6B35;
+    --deep-saffron: #E85320;
+    --india-green: #1B6B35;
+    --navy: #0A1628;
+    --cream: #FFF8F0;
+    --gold: #F5A623;
+    --light-gold: #FFE0A3;
+    --white: #FFFFFF;
+    --text-dark: #1A1A2E;
+    --text-mid: #4A4A6A;
+    --card-bg: rgba(255,255,255,0.92);
+    --glass: rgba(255,107,53,0.08);
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
-  /* Utilities */
-  .hidden { display: none !important; }
+  body {
+    font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
 
-  /* Hero & Orbs */
-  .hero { min-height: 100vh; background: linear-gradient(135deg, var(--navy) 0%, #16213e 40%, #0f3460 100%); position: relative; display: flex; align-items: center; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF6B35' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.4; }
-  .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.15; animation: float 8s ease-in-out infinite; }
+  /* ===== HERO SECTION ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, #16213e 40%, #0f3460 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF6B35' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  /* Floating orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.15;
+    animation: float 8s ease-in-out infinite;
+  }
   .orb1 { width: 400px; height: 400px; background: var(--saffron); top: -100px; right: -100px; animation-delay: 0s; }
   .orb2 { width: 300px; height: 300px; background: var(--gold); bottom: -80px; left: -80px; animation-delay: 3s; }
   .orb3 { width: 200px; height: 200px; background: var(--india-green); top: 50%; left: 50%; animation-delay: 1.5s; }
-  @keyframes float { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
 
-  .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2; padding-top: 80px; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+  }
+
   .hero-text { color: white; }
-  .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,107,53,0.2); border: 1px solid rgba(255,107,53,0.4); border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; color: var(--light-gold); margin-bottom: 1.5rem; text-transform: uppercase; }
-  .hero-title { font-family: 'Baloo 2', cursive; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
-  .hero-title .highlight { background: linear-gradient(135deg, var(--saffron), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .hero-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; line-height: 1.7; }
-  
-  .btn-primary { background: linear-gradient(135deg, var(--saffron), var(--deep-saffron)); color: white; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; box-shadow: 0 8px 25px rgba(255,107,53,0.4);}
-  .btn-secondary { background: transparent; color: white; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
 
-  .hero-visual { position: relative; display: flex; justify-content: center; }
-  .founder-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 2rem; text-align: center; width: 320px; position: relative; overflow: hidden; }
-  .founder-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--saffron), var(--gold), var(--india-green)); }
-  .founder-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid transparent; background: linear-gradient(white, white) padding-box, linear-gradient(135deg, var(--saffron), var(--gold)) border-box; box-shadow: 0 8px 32px rgba(255,107,53,0.3); margin-bottom:15px;}
-  .founder-name { font-family: 'Baloo 2', cursive; font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 0.2rem; }
-  .founder-role { font-size: 0.8rem; color: var(--saffron); font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,107,53,0.2);
+    border: 1px solid rgba(255,107,53,0.4);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    color: var(--light-gold);
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.6s ease forwards;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
 
-  /* Navbar */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10, 22, 40, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,107,53,0.2); }
-  .logo { font-family: 'Baloo 2', cursive; font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; cursor:pointer;}
+  .badge::before { content: '🚀'; }
+
+  .hero-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.7s ease 0.1s both;
+  }
+
+  .hero-title .highlight {
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    animation: fadeInUp 0.7s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.7s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255,107,53,0.5);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--saffron);
+    background: rgba(255,107,53,0.1);
+  }
+
+  /* ===== FOUNDER CARD ===== */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    animation: fadeInRight 0.8s ease 0.2s both;
+  }
+
+  .founder-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    width: 320px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--saffron), var(--gold), var(--india-green));
+  }
+
+  .founder-photo-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .founder-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, var(--saffron), var(--gold)) border-box;
+    box-shadow: 0 8px 32px rgba(255,107,53,0.3);
+  }
+
+  .online-badge {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 24px;
+    height: 24px;
+    background: var(--india-green);
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+  }
+
+  .founder-name {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.2rem;
+  }
+
+  .founder-role {
+    font-size: 0.8rem;
+    color: var(--saffron);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .founder-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 1rem;
+  }
+
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .skill-tag {
+    background: rgba(255,107,53,0.15);
+    border: 1px solid rgba(255,107,53,0.3);
+    color: var(--light-gold);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 22, 40, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,107,53,0.2);
+  }
+
+  .logo {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+  }
+
   .logo span { color: var(--saffron); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; cursor:pointer;}
-  .nav-links a:hover { color: var(--saffron); }
-  .nav-cta { background: var(--saffron); color: white !important; padding: 8px 20px; border-radius: 50px; font-weight: 600 !important; cursor:pointer; border:none; }
 
-  /* Sections */
-  .section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-  .section-title { font-family: 'Baloo 2', cursive; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover { color: var(--saffron); }
+
+  .nav-cta {
+    background: var(--saffron);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ===== HOW IT WORKS ===== */
+  .section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    background: rgba(255,107,53,0.1);
+    color: var(--saffron);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
   .section-title .accent { color: var(--saffron); }
+
+  .section-desc {
+    font-size: 1.1rem;
+    color: var(--text-mid);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* Steps */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .step-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(255,107,53,0.12);
+  }
+
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--saffron), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .step-card:hover::before { transform: scaleX(1); }
+
+  .step-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255,107,53,0.1);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .step-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-desc {
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* ===== FEATURES ===== */
+  .features-bg {
+    background: linear-gradient(135deg, #0A1628 0%, #16213e 100%);
+    padding: 6rem 2rem;
+  }
+
+  .features-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .feature-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+
+  .feature-card:hover {
+    background: rgba(255,107,53,0.1);
+    border-color: rgba(255,107,53,0.3);
+    transform: translateY(-4px);
+  }
+
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 8px 20px rgba(255,107,53,0.3);
+  }
+
+  .feature-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .features-bg .section-title { color: white; }
+  .features-bg .section-desc { color: rgba(255,255,255,0.6); }
+
+  /* ===== SKILLS SHOWCASE ===== */
+  .skills-section { background: white; padding: 6rem 2rem; }
+  .skills-inner { max-width: 1200px; margin: 0 auto; }
+
+  .skills-carousel {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .skill-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cream);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .skill-pill:hover, .skill-pill.active {
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, var(--saffron), var(--gold)) border-box;
+    color: var(--saffron);
+  }
+
+  .skill-pill .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--saffron);
+    opacity: 0.5;
+  }
+
+  .skill-pill:hover .dot, .skill-pill.active .dot { opacity: 1; }
+
+  /* ===== CREDIT SYSTEM ===== */
+  .credits-section {
+    background: linear-gradient(135deg, var(--cream), #ffe8d6);
+    padding: 6rem 2rem;
+  }
+
+  .credits-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .credit-visual {
+    background: var(--navy);
+    border-radius: 24px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .credit-visual::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,107,53,0.1) 60deg, transparent 120deg);
+    animation: spin 10s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .credit-ui {
+    position: relative;
+    z-index: 2;
+  }
+
+  .credit-title-small {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .credit-balance {
+    font-family: 'Baloo 2', cursive;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .credit-balance span {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  .credit-transactions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .txn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .txn-info { display: flex; align-items: center; gap: 10px; }
+  .txn-icon { font-size: 1.2rem; }
+
+  .txn-name {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .txn-time {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+  }
+
+  .txn-amount {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .txn-amount.earn { color: #4ade80; }
+  .txn-amount.spend { color: var(--saffron); }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials {
+    background: white;
+    padding: 6rem 2rem;
+  }
+
+  .testimonials-inner { max-width: 1200px; margin: 0 auto; }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Baloo 2', cursive;
+    font-size: 5rem;
+    color: rgba(255,107,53,0.1);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    line-height: 1;
+  }
+
+  .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.8rem; }
+
+  .testimonial-text {
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.9rem;
+  }
+
+  .author-skill {
+    font-size: 0.75rem;
+    color: var(--saffron);
+  }
+
+  /* ===== CTA SECTION ===== */
+  .cta-section {
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--deep-saffron) 100%);
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+
+  .cta-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-desc {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--saffron);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  }
+
+  .btn-outline-white {
+    background: transparent;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-outline-white:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo span { color: var(--saffron); }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--saffron); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ===== INDIA STRIP ===== */
+  .india-strip {
+    display: flex;
+    height: 4px;
+    background: linear-gradient(90deg, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
+  }
+
+  /* Scroll animation for cards */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 3rem;
+    }
+
+    .hero-cta { justify-content: center; }
+
+    .credits-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-links { display: none; }
+
+    .founder-card { width: 280px; margin: 0 auto; }
+  }
+
+  /* ========================================================================================= */
+  /* ===== 🔥 NAYE FEATURES KA CSS (MARKETPLACE, MODALS, CHAT) BINA PURANE KO CHHEDE ===== */
+  /* ========================================================================================= */
+
+  .hidden-page { display: none !important; }
   
-  /* ===== ADVANCED MARKETPLACE CSS ===== */
-  #marketplace { padding-top: 100px; min-height: 100vh; background: var(--cream); }
+  /* Marketplace Styles */
+  #marketplacePage { padding: 120px 2rem 6rem; max-width: 1200px; margin: 0 auto; min-height: 100vh; }
   .users-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
   .user-card { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s; }
   .user-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,107,53,0.1); }
@@ -70,22 +920,23 @@
   .msg-btn { width: 100%; margin-top: 15px; background: var(--navy); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; }
   .msg-btn:hover { background: var(--saffron); }
 
-  /* ===== MODALS & CHAT CSS ===== */
+  /* Modal Styles */
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
   .modal-box { background: var(--white); padding: 2.5rem 1.5rem; border-radius: 20px; width: 90%; max-width: 450px; text-align: center; position: relative; }
   .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; color: #aaa; cursor: pointer; }
-  .auth-btn { width: 100%; padding: 12px; margin: 15px 0; border-radius: 12px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px; color: var(--navy); }
+  .auth-btn { width: 100%; padding: 12px; margin: 15px 0; border-radius: 12px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px; color: var(--navy); font-family: 'Poppins', sans-serif;}
   
   .input-group { text-align: left; margin-bottom: 15px; }
   .input-group label { font-size: 0.85rem; color: var(--text-mid); font-weight: 600; margin-bottom: 5px; display: block; }
-  .input-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+  .input-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Poppins', sans-serif; }
   .input-group input:focus { border-color: var(--saffron); }
 
-  .chat-widget { display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 1500; flex-direction: column; overflow: hidden; border: 1px solid #ddd; }
-  .chat-header { background: var(--navy); color: var(--white); padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; font-family: 'Baloo 2', cursive; font-size: 1.1rem;}
+  /* Chat Widget Styles */
+  .chat-widget { display: none; position: fixed; bottom: 20px; right: 20px; width: 340px; height: 480px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 1500; flex-direction: column; overflow: hidden; border: 1px solid #ddd; }
+  .chat-header { background: var(--navy); color: var(--white); padding: 15px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; font-family: 'Baloo 2', cursive; font-size: 1.2rem;}
   .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #FFF8F3; display: flex; flex-direction: column; gap: 10px; }
   .chat-input-area { display: flex; padding: 10px; border-top: 1px solid #f0f0f0; background: var(--white); gap: 10px; }
-  .chat-input { flex: 1; padding: 10px; border: 1px solid #EEE; border-radius: 50px; outline: none; }
+  .chat-input { flex: 1; padding: 10px; border: 1px solid #EEE; border-radius: 50px; outline: none; font-family: 'Poppins', sans-serif;}
   .chat-send-btn { background: var(--saffron); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
 
   .msg-wrapper { max-width: 85%; display: flex; flex-direction: column; }
@@ -96,72 +947,360 @@
   .msg-wrapper.me .msg-text { background: var(--saffron); color: var(--white); border-bottom-right-radius: 3px; }
   .msg-wrapper.other .msg-text { background: #EEE; color: var(--navy); border-bottom-left-radius: 3px; }
 
-  @media (max-width: 768px) { .hero-container { grid-template-columns: 1fr; text-align: center; padding-top: 100px; } .nav-links-desktop { display: none; } }
 </style>
 </head>
 <body>
 
-<div style="display: flex; height: 4px; background: linear-gradient(90deg, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);"></div>
+<div class="india-strip"></div>
 
 <nav>
-  <a onclick="showPage('landing')" class="logo">Skill<span>Swap</span> India</a>
-  <ul class="nav-links nav-links-desktop" id="navMenu">
-    <li><a onclick="showPage('landing')">Home</a></li>
-    <li><a onclick="toggleCommunityChat()">🌍 Global Chat</a></li>
-    <li id="browseMenuBtn" class="hidden"><a onclick="showPage('marketplace')" style="color:var(--saffron); font-weight:bold;">🔍 Browse Skills</a></li>
-    <li><button id="loginBtnNav" class="nav-cta" onclick="openLoginModal()">Login / Join</button></li>
+  <a href="javascript:void(0)" onclick="showPage('landing')" class="logo">Skill<span>Swap</span> India</a>
+  <ul class="nav-links">
+    <li><a href="javascript:void(0)" onclick="showPage('landing')">Home</a></li>
+    <li><a href="#how" class="scroll-link">Kaise Kaam Karta Hai</a></li>
+    <li><a href="#features" class="scroll-link">Features</a></li>
+    <li><a href="javascript:void(0)" onclick="toggleCommunityChat()">🌍 Global Chat</a></li>
+    <li id="browseMenuBtn" style="display:none;"><a href="javascript:void(0)" onclick="showPage('marketplace')" style="color:var(--saffron); font-weight:bold;">🔍 Browse Skills</a></li>
+    <li><button id="loginBtnNav" class="nav-cta" onclick="openLoginModal()" style="border:none; cursor:pointer;">Login / Join</button></li>
   </ul>
 </nav>
 
 <div id="landingPage">
+
   <section class="hero">
-    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
     <div class="hero-container">
       <div class="hero-text">
         <div class="badge">India's First Skill Exchange Platform</div>
-        <h1 class="hero-title">Apna Skill<br><span class="highlight">Exchange Karo,</span><br>Naya Seekho!</h1>
-        <p class="hero-subtitle">Bina paise diye dusron se skills seekho. Har Indian ka talent valuable hai! 🇮🇳</p>
+        <h1 class="hero-title">
+          Apna Skill<br>
+          <span class="highlight">Exchange Karo,</span><br>
+          Naya Seekho!
+        </h1>
+        <p class="hero-subtitle">
+          Bina paise diye dusron se skills seekho. Guitar sikhao, coding seekho. 
+          English sikhao, cooking seekho. Har Indian ka talent valuable hai! 🇮🇳
+        </p>
         <div class="hero-cta">
-          <button onclick="openLoginModal()" class="btn-primary">🚀 Join Community</button>
+          <a href="javascript:void(0)" onclick="openLoginModal()" class="btn-primary">🚀 Free Join Karo</a>
+          <a href="#how" class="btn-secondary scroll-link">▶ Kaise Kaam Karta Hai</a>
         </div>
       </div>
+
       <div class="hero-visual">
         <div class="founder-card">
-          <img src="founder.jpg" alt="Adarsh Mishra" class="founder-photo">
+          <img 
+            src="founder.jpg" 
+            alt="Adarsh Mishra - Founder" 
+            class="founder-photo"
+            onerror="this.src='https://ui-avatars.com/api/?name=Adarsh+Mishra&background=FF6B35&color=fff';"
+          >
           <div class="online-badge">✓</div>
           <h3 class="founder-name">Adarsh Mishra</h3>
           <p class="founder-role">🏆 Founder & CEO</p>
-          <p style="color: white; font-size: 0.85rem; opacity: 0.8;">"Empowering India through Free Skill Exchange."</p>
+          <div class="founder-stats">
+            <div class="stat">
+              <span class="stat-num">2.4K</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">180+</span>
+              <span class="stat-label">Skills</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5★</span>
+              <span class="stat-label">Rating</span>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">💻 Coding</span>
+            <span class="skill-tag">🎵 Guitar</span>
+            <span class="skill-tag">📊 Excel</span>
+            <span class="skill-tag">🗣️ English</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
-</div>
 
-<div id="marketplacePage" class="hidden">
-  <section id="marketplace" class="section">
-    <h2 class="section-title">Explore <span class="accent">Skill Partners</span></h2>
-    <p style="color: var(--text-mid);">Directly message users to schedule a skill exchange session.</p>
-    
-    <div class="users-grid" id="usersGrid">
-      <div style="text-align:center; color:#888; grid-column: 1/-1;">Loading members...</div>
+  <section id="how">
+    <div class="section">
+      <span class="section-label">Simple Process</span>
+      <h2 class="section-title">Sirf 3 Steps Mein <span class="accent">Shuru Karo!</span></h2>
+      <p class="section-desc">SkillSwap India pe join karna bilkul free hai. Apna skill list karo aur dusron ka skill seekho!</p>
+
+      <div class="steps-grid">
+        <div class="step-card animate-on-scroll">
+          <div class="step-num">01</div>
+          <span class="step-icon">👤</span>
+          <h3 class="step-title">Profile Banao</h3>
+          <p class="step-desc">Apna profile banao aur batao ki tum kya sikhana chahte ho aur kya seekhna chahte ho. Regional language support available hai!</p>
+        </div>
+        <div class="step-card animate-on-scroll" style="transition-delay: 0.1s">
+          <div class="step-num">02</div>
+          <span class="step-icon">🔄</span>
+          <h3 class="step-title">Match Dhundo</h3>
+          <p class="step-desc">Hamara AI algorithm aapko perfect skill partner se milata hai. Ek ghanta sikhao = 1 SkillCredit! Direct exchange bhi possible hai.</p>
+        </div>
+        <div class="step-card animate-on-scroll" style="transition-delay: 0.2s">
+          <div class="step-num">03</div>
+          <span class="step-icon">🚀</span>
+          <h3 class="step-title">Seekho & Kamao</h3>
+          <p class="step-desc">Live sessions, resources share karo, reviews do. SkillCredits se premium skills unlock karo ya sponsors se real money kamao!</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section id="features" class="features-bg">
+    <div class="features-inner">
+      <span class="section-label" style="background: rgba(255,107,53,0.2); color: var(--light-gold);">Why SkillSwap India?</span>
+      <h2 class="section-title" style="color: white;">Aise Features Jo India <span class="accent">Ke Liye Bane Hain</span></h2>
+      <p class="section-desc">Rural India se urban India tak, har kisi ke liye designed platform.</p>
+
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">🧠</div>
+          <h3 class="feature-title">AI Smart Matching</h3>
+          <p class="feature-desc">Hamara algorithm tumhare skill level, location, aur availability ke hisaab se best match dhundta hai. No more searching manually!</p>
+        </div>
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.1s">
+          <div class="feature-icon">💰</div>
+          <h3 class="feature-title">SkillCredit System</h3>
+          <p class="feature-desc">1 hour sikhao = 1 SkillCredit. Credits se koi bhi skill seekho. Fair exchange, zero paise! Credits real money mein bhi convert ho sakte hain.</p>
+        </div>
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.2s">
+          <div class="feature-icon">🗣️</div>
+          <h3 class="feature-title">22+ Bhasha Support</h3>
+          <p class="feature-desc">Hindi, Bhojpuri, Tamil, Telugu, Bengali - apni bhasha mein seekho. Rural India ko target karte hue local language priority.</p>
+        </div>
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.3s">
+          <div class="feature-icon">🛡️</div>
+          <h3 class="feature-title">Verified Profiles</h3>
+          <p class="feature-desc">Aadhaar-based verification aur skill tests se ensure karte hain ki every teacher genuinely qualified hai. 100% safe platform.</p>
+        </div>
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.4s">
+          <div class="feature-icon">📱</div>
+          <h3 class="feature-title">Mobile-First Design</h3>
+          <p class="feature-desc">Low bandwidth bhi chalega! 2G/3G pe bhi smooth experience. India ke har corner se accessible.</p>
+        </div>
+        <div class="feature-card animate-on-scroll" style="transition-delay: 0.5s">
+          <div class="feature-icon">🏆</div>
+          <h3 class="feature-title">Community Events</h3>
+          <p class="feature-desc">Weekly skill challenges, hackathons, aur village workshops. Offline events bhi organize karte hain tier-2 aur tier-3 cities mein.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills-section">
+    <div class="skills-inner">
+      <span class="section-label">Popular Skills</span>
+      <h2 class="section-title">1000+ Skills <span class="accent">Available Hain!</span></h2>
+      <p class="section-desc">Technology se crafts tak, music se business tak - har skill yahan milti hai.</p>
+
+      <div class="skills-carousel">
+        <div class="skill-pill active"><span class="dot"></span>💻 Web Development</div>
+        <div class="skill-pill"><span class="dot"></span>🎵 Guitar / Music</div>
+        <div class="skill-pill"><span class="dot"></span>🗣️ English Speaking</div>
+        <div class="skill-pill"><span class="dot"></span>🎨 Digital Art</div>
+        <div class="skill-pill"><span class="dot"></span>📊 MS Excel</div>
+        <div class="skill-pill"><span class="dot"></span>🍳 Cooking</div>
+        <div class="skill-pill"><span class="dot"></span>📸 Photography</div>
+        <div class="skill-pill"><span class="dot"></span>🧘 Yoga</div>
+        <div class="skill-pill"><span class="dot"></span>💇 Stitching / Fashion</div>
+        <div class="skill-pill"><span class="dot"></span>🏋️ Fitness Training</div>
+        <div class="skill-pill"><span class="dot"></span>📱 Social Media</div>
+        <div class="skill-pill"><span class="dot"></span>🌾 Organic Farming</div>
+        <div class="skill-pill"><span class="dot"></span>🔧 Car Repair</div>
+        <div class="skill-pill"><span class="dot"></span>📚 Tutoring</div>
+        <div class="skill-pill"><span class="dot"></span>🎭 Dance / Theatre</div>
+        <div class="skill-pill"><span class="dot"></span>✏️ Drawing / Painting</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="credits" class="credits-section">
+    <div class="credits-inner">
+      <div class="credit-visual animate-on-scroll">
+        <div class="credit-ui">
+          <p class="credit-title-small">Your SkillWallet</p>
+          <div class="credit-balance">47 <span>SkillCredits</span></div>
+          <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-bottom: 1rem;">≈ 47 hours of learning available</p>
+
+          <div class="credit-transactions">
+            <div class="txn">
+              <div class="txn-info">
+                <span class="txn-icon">💻</span>
+                <div>
+                  <div class="txn-name">Web Dev sikhaya - Rahul ko</div>
+                  <div class="txn-time">2 ghante pehle</div>
+                </div>
+              </div>
+              <span class="txn-amount earn">+2 SC</span>
+            </div>
+            <div class="txn">
+              <div class="txn-info">
+                <span class="txn-icon">🎵</span>
+                <div>
+                  <div class="txn-name">Guitar class - Priya se</div>
+                  <div class="txn-time">Aaj subah</div>
+                </div>
+              </div>
+              <span class="txn-amount spend">-1 SC</span>
+            </div>
+            <div class="txn">
+              <div class="txn-info">
+                <span class="txn-icon">📊</span>
+                <div>
+                  <div class="txn-name">Excel Training - 3 students</div>
+                  <div class="txn-time">Kal</div>
+                </div>
+              </div>
+              <span class="txn-amount earn">+3 SC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll" style="transition-delay: 0.2s">
+        <span class="section-label">SkillCredit Economy</span>
+        <h2 class="section-title">Paise Nahi, <span class="accent">Skills Exchange Karo!</span></h2>
+        <p class="section-desc" style="margin-bottom: 2rem;">
+          Hamara unique credit system ensure karta hai ki koi bhi skill seekhne se nahi ruke. Ek ghanta sikhao, ek ghanta seekho — yahi SkillSwap ka formula hai!
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 1rem; background: white; border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+            <div style="width: 40px; height: 40px; background: #FFF0E5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">⏰</div>
+            <div>
+              <div style="font-weight: 600; color: var(--navy);">1 Hour = 1 SkillCredit</div>
+              <div style="font-size: 0.8rem; color: var(--text-mid);">Fair aur transparent exchange system</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; background: white; border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+            <div style="width: 40px; height: 40px; background: #E5F5ED; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">💳</div>
+            <div>
+              <div style="font-weight: 600; color: var(--navy);">Credits = Real Money</div>
+              <div style="font-size: 0.8rem; color: var(--text-mid);">Sponsors aur brands se real cash kamao</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; background: white; border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+            <div style="width: 40px; height: 40px; background: #E5EEFF; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">🎁</div>
+            <div>
+              <div style="font-weight: 600; color: var(--navy);">Referral Bonus</div>
+              <div style="font-size: 0.8rem; color: var(--text-mid);">Dost ko invite karo, 5 free SkillCredits pao</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <span class="section-label">Real Stories</span>
+      <h2 class="section-title">Logon Ki <span class="accent">Real Stories</span></h2>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-on-scroll">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Maine guitar sikhaya aur badle mein Python coding seekhi. Ab main freelancer hoon aur monthly ₹40,000 kama raha hoon! SkillSwap ne meri zindagi badal di.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RK</div>
+            <div>
+              <div class="author-name">Rohit Kumar</div>
+              <div class="author-skill">Jaipur • Guitar → Python Developer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.1s">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Ek gaon ki ladki thi, English nahi aati thi. Yahan stitching sikhate sikhate fluent English ho gayi! Ab BPO mein job hai. Thank you Adarsh bhai!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SP</div>
+            <div>
+              <div class="author-name">Sunita Patel</div>
+              <div class="author-skill">Lucknow • Stitching → English Speaker</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.2s">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Rural Bihar mein rahte hain, lekin digital marketing seekh liya SkillSwap ke through. Organic farming ka knowledge exchange kiya. Revolutionary idea hai yeh!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div>
+              <div class="author-name">Amit Yadav</div>
+              <div class="author-skill">Patna • Farming → Digital Marketing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Aaj Hi Join Karo — <br>It's 100% FREE! 🎉</h2>
+      <p class="cta-desc">
+        5000+ Indians already exchange kar rahe hain apni skills. Tum kab join karte ho? Adarsh Mishra ka vision hai ki har Indian apna talent use karke aage badhe!
+      </p>
+      <div class="cta-btns">
+        <button onclick="openLoginModal()" class="btn-white">🚀 Free Account Banao</button>
+        <button class="btn-outline-white">📱 App Download Karo</button>
+      </div>
+      <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1.5rem;">
+        ✓ No credit card required &nbsp;✓ Hindi mein support &nbsp;✓ Mobile friendly
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Skill<span>Swap</span> India</div>
+    <p class="footer-tagline">Apna Skill Exchange Karo, Naya Seekho — Founded by Adarsh Mishra</p>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About Adarsh</a>
+      <a href="#">How It Works</a>
+      <a href="#">Skills List</a>
+      <a href="#">SkillCredits</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SkillSwap India — Founded by Adarsh Mishra, Shahjahanpur, Uttar Pradesh 🇮🇳</p>
+      <p style="margin-top: 0.3rem;">Made with ❤️ for Bharat • Jai Hind!</p>
+    </div>
+  </footer>
+
+</div> <div id="marketplacePage" class="hidden-page">
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <h2 class="section-title">Explore <span class="accent">Skill Partners</span></h2>
+    <p class="section-desc" style="margin:0 auto;">Browse profiles and directly message users to schedule a skill exchange session.</p>
+  </div>
+  <div class="users-grid" id="usersGrid">
+    <div style="text-align:center; color:#888; grid-column: 1/-1;">Loading members from database...</div>
+  </div>
 </div>
 
 <div id="loginModal" class="modal-overlay">
   <div class="modal-box">
     <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
-    <h3 style="font-family: 'Baloo 2'; color: var(--navy);">Join SkillSwap India</h3>
+    <h3 style="font-family: 'Baloo 2', cursive; color: var(--navy); margin-bottom: 10px; font-size: 1.5rem;">Join SkillSwap India</h3>
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Bina number dikhaye safely connect karein.</p>
     <button id="googleAuthBtn" class="auth-btn">
-      <img src="https://img.icons8.com/color/48/000000/google-logo.png" style="height:24px;"/> Login with Google
+      <img src="https://img.icons8.com/color/48/000000/google-logo.png" style="height:24px;"/> Google se Login
     </button>
   </div>
 </div>
 
 <div id="profileModal" class="modal-overlay">
   <div class="modal-box">
-    <h3 style="font-family: 'Baloo 2'; color: var(--saffron); margin-bottom:15px;">Complete Your Profile</h3>
+    <h3 style="font-family: 'Baloo 2', cursive; color: var(--saffron); margin-bottom:10px; font-size: 1.5rem;">Complete Your Profile</h3>
     <p style="font-size:0.85rem; color:#666; margin-bottom:20px;">Dusron ko batayein aap kya exchange kar sakte hain.</p>
     
     <div class="input-group">
@@ -195,12 +1334,13 @@
   </div>
 </div>
 
+
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, doc, setDoc, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // Aapki API Key
+  // Aapki API Key & Config
   const firebaseConfig = {
     apiKey: "AIzaSyCnlFllcoKlSeezpyWoVXb2bvAiU6MW4yI",
     authDomain: "skillswap-india-skill-exchange.firebaseapp.com",
@@ -218,7 +1358,7 @@
   let activePrivateChatId = null;
   let privateChatUnsubscribe = null;
 
-  // --- 1. AUTHENTICATION & PROFILE LOGIC ---
+  // --- AUTHENTICATION ---
   document.getElementById('googleAuthBtn').addEventListener('click', () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then(() => closeModal('loginModal')).catch(e => alert("Login Error"));
   });
@@ -227,14 +1367,14 @@
     if (user) {
       currentUser = user;
       document.getElementById('loginBtnNav').innerText = user.displayName.split(' ')[0];
-      document.getElementById('browseMenuBtn').classList.remove('hidden');
+      document.getElementById('browseMenuBtn').style.display = 'block';
       
-      // Check if user has a profile in database
+      // Check if user profile exists
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (!userDoc.exists()) {
         document.getElementById('profileModal').style.display = 'flex';
       } else {
-        // If profile exists and they are on landing page, move them to marketplace
+        // Redirect to marketplace if they are on landing page
         if(document.getElementById('landingPage').style.display !== 'none'){
             window.showPage('marketplace');
         }
@@ -242,12 +1382,12 @@
     } else {
       currentUser = null;
       document.getElementById('loginBtnNav').innerText = "Login / Join";
-      document.getElementById('browseMenuBtn').classList.add('hidden');
+      document.getElementById('browseMenuBtn').style.display = 'none';
       window.showPage('landing');
     }
   });
 
-  // --- 2. SAVE PROFILE LOGIC ---
+  // --- SAVE PROFILE ---
   document.getElementById('saveProfileBtn').addEventListener('click', async () => {
     const teach = document.getElementById('teachInput').value;
     const learn = document.getElementById('learnInput').value;
@@ -264,18 +1404,17 @@
     window.showPage('marketplace');
   });
 
-  // --- 3. MARKETPLACE FETCH LOGIC ---
+  // --- LOAD MARKETPLACE USERS ---
   window.loadMarketplaceUsers = async function() {
     const grid = document.getElementById('usersGrid');
-    grid.innerHTML = '<div style="text-align:center; grid-column:1/-1;">Fetching members...</div>';
+    grid.innerHTML = '<div style="text-align:center; grid-column:1/-1;">Fetching members from Database...</div>';
     const querySnapshot = await getDocs(collection(db, "users"));
     grid.innerHTML = '';
     
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
       const uid = docSnap.id;
-      // Don't show own card
-      if(currentUser && uid === currentUser.uid) return; 
+      if(currentUser && uid === currentUser.uid) return; // Don't show self
 
       grid.innerHTML += `
         <div class="user-card">
@@ -288,9 +1427,9 @@
     });
   };
 
-  // --- 4. GLOBAL COMMUNITY CHAT LOGIC ---
+  // --- GLOBAL CHAT ---
   document.getElementById('communitySendBtn').addEventListener('click', async () => {
-    if(!currentUser) return;
+    if(!currentUser) { alert("Please login first!"); return; }
     const msgInput = document.getElementById('communityMsgInput');
     if(msgInput.value.trim() !== "") {
       try {
@@ -311,20 +1450,15 @@
     chatBody.scrollTop = chatBody.scrollHeight;
   });
 
-  // --- 5. PRIVATE 1-ON-1 CHAT LOGIC ---
+  // --- PRIVATE CHAT ---
   window.startPrivateChat = function(targetUid, targetName) {
     if(!currentUser) { alert("Please login first!"); return; }
-    
-    // Create unique sorted chat ID so both users see the same database folder
     activePrivateChatId = currentUser.uid < targetUid ? currentUser.uid + '_' + targetUid : targetUid + '_' + currentUser.uid;
-    
     document.getElementById('privateChatTitle').innerText = 'Chat w/ ' + targetName.split(' ')[0];
     document.getElementById('privateChatWidget').style.display = 'flex';
     document.getElementById('communityChatWidget').style.display = 'none';
 
-    if(privateChatUnsubscribe) privateChatUnsubscribe(); // Stop old listeners
-
-    // Listen to specific subcollection for these 2 users only
+    if(privateChatUnsubscribe) privateChatUnsubscribe();
     const q = query(collection(db, "chats_private", activePrivateChatId, "messages"), orderBy("timestamp", "asc"));
     privateChatUnsubscribe = onSnapshot(q, (snapshot) => {
       const chatBody = document.getElementById('privateChatBody');
@@ -362,15 +1496,51 @@
 
   function showPage(page) {
     if (page === 'landing') {
-      document.getElementById('landingPage').classList.remove('hidden');
-      document.getElementById('marketplacePage').classList.add('hidden');
+      document.getElementById('landingPage').style.display = 'block';
+      document.getElementById('marketplacePage').style.display = 'none';
     } else if (page === 'marketplace') {
-      document.getElementById('landingPage').classList.add('hidden');
-      document.getElementById('marketplacePage').classList.remove('hidden');
+      document.getElementById('landingPage').style.display = 'none';
+      document.getElementById('marketplacePage').style.display = 'block';
+      window.scrollTo(0, 0);
       if(window.loadMarketplaceUsers) window.loadMarketplaceUsers();
     }
   }
+
+  // Original Scroll Animation Logic
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+  // Original Skill Pill logic
+  document.querySelectorAll('.skill-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.skill-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // Original Smooth Scroll (Updated for new navigation)
+  document.querySelectorAll('a.scroll-link').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Ensure landing page is visible before scrolling
+      if(document.getElementById('landingPage').style.display === 'none') {
+        showPage('landing');
+      }
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 </script>
 
 </body>
 </html>
+
